@@ -718,9 +718,9 @@ var TASKS_BASE = TASKS.slice();
 // — STATE —
 let checked = {}, notes = {}, customTasks = [], overrides = {}, hidden = [];
 let activeTab = 'all', activeFilter = 'all', activeSidebar = null, editingId = null;
-
-render();
-
+  document.addEventListener("DOMContentLoaded", () => {
+  render();
+});
 const CATS = {
   all:'All', onpage:'On-Page SEO', technical:'Technical SEO', offpage:'Off-Page SEO',
   aio:'AIO', geo:'GEO', analytics:'Analytics (GA4)', console:'Search Console',
