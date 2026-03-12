@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GMR Group — Full SEO / AIO / GEO Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c10;
+    --surface: #12151c;
+    --surface2: #1a1e28;
+    --border: #252a38;
+    --accent: #e8a020;
+    --accent3: #10b981;
+    --warn: #f59e0b;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --c-onpage:    #3b82f6;
+    --c-technical: #a855f7;
+    --c-offpage:   #f97316;
+    --c-aio:       #06b6d4;
+    --c-geo:       #10b981;
+    --c-frontend:  #f59e0b;
+    --c-backend:   #ec4899;
+    --c-content:   #84cc16;
+    --c-analytics: #e879f9;
+    --c-console:   #38bdf8;
+    --c-pagewise:  #fb7185;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  .header {
+    background: #0d1117;
+    border-bottom: 1px solid var(--border);
+    padding: 0 28px;
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap; min-height: 60px;
+  }
+  .hbrand { display: flex; align-items: center; gap: 10px; }
+  .logo { width: 34px; height: 34px; background: var(--accent); display: flex; align-items: center; justify-content: center; border-radius: 6px; font-family:'Syne',sans-serif; font-weight:800; font-size:13px; color:#000; }
+  .htitle { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; }
+  .hsub { font-size:11px; color:var(--muted); }
+  .hstats { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .pill { background:var(--surface2); border:1px solid var(--border); border-radius:20px; padding:3px 12px; font-size:12px; display:flex; align-items:center; gap:5px; }
+  .pill b { font-family:'Syne',sans-serif; font-weight:800; }
+  .btn-exp { background:var(--accent); color:#000; border:none; border-radius:7px; padding:7px 16px; font-size:12px; font-weight:700; cursor:pointer; font-family:'Syne',sans-serif; }
+  .btn-exp:hover { opacity:.85; }
+
+  .tabs { background:var(--surface); border-bottom:1px solid var(--border); padding:0 20px; display:flex; overflow-x:auto; scrollbar-width:none; }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab { background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; padding:13px 16px; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
+  .tab:hover { color:var(--text); }
+  .tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+  .tbadge { background:var(--surface2); border-radius:10px; padding:1px 7px; font-size:11px; margin-left:4px; }
+
+  .layout { display:flex; height:calc(100vh - 106px); }
+  .sidebar { width:240px; flex-shrink:0; background:var(--surface); border-right:1px solid var(--border); overflow-y:auto; padding:12px 0; }
+  .slabel { font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; padding:8px 14px 4px; }
+  .sitem { display:flex; align-items:center; justify-content:space-between; padding:7px 14px; cursor:pointer; transition:background .15s; font-size:12px; gap:6px; }
+  .sitem:hover { background:var(--surface2); }
+  .sitem.active { background:rgba(232,160,32,.1); border-right:2px solid var(--accent); color:var(--accent); }
+  .scount { font-size:11px; color:var(--muted); background:var(--surface2); border-radius:8px; padding:1px 6px; }
+  .sprog { height:3px; background:var(--border); border-radius:2px; margin:0 14px 4px; }
+  .sprogf { height:100%; background:var(--accent3); border-radius:2px; }
+
+  .content { flex:1; overflow-y:auto; padding:20px; }
+  .fbar { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .fsearch { flex:1; min-width:180px; background:var(--surface); border:1px solid var(--border); border-radius:7px; padding:7px 12px; color:var(--text); font-size:12px; font-family:'DM Sans',sans-serif; outline:none; }
+  .fsearch:focus { border-color:var(--accent); }
+  .fbtn { background:var(--surface); border:1px solid var(--border); border-radius:7px; padding:6px 12px; font-size:12px; cursor:pointer; color:var(--muted); transition:all .15s; font-family:'DM Sans',sans-serif; }
+  .fbtn:hover { color:var(--text); border-color:var(--muted); }
+  .fbtn.active { background:var(--accent); color:#000; border-color:var(--accent); font-weight:700; }
+
+  .legend { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px; }
+  .li { display:flex; align-items:center; gap:4px; font-size:11px; color:var(--muted); }
+  .ld { width:8px; height:8px; border-radius:2px; }
+
+  .prog-box { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px 16px; margin-bottom:16px; display:flex; align-items:center; gap:20px; }
+  .prog-num { font-family:'Syne',sans-serif; font-size:26px; font-weight:800; color:var(--accent); }
+  .prog-track { flex:1; height:6px; background:var(--border); border-radius:3px; }
+  .prog-fill { height:100%; background:linear-gradient(90deg,var(--accent3),var(--accent)); border-radius:3px; transition:width .5s; }
+  .prog-info { font-size:12px; color:var(--muted); }
+
+  /* ── Category colour tokens ── */
+
+  table { width:100%; border-collapse:separate; border-spacing:0 3px; }
+  thead th { font-size:11px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; padding:8px 10px; text-align:left; background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:5; }
+  thead th:first-child { border-left:1px solid var(--border); border-radius:6px 0 0 6px; }
+  thead th:last-child  { border-right:1px solid var(--border); border-radius:0 6px 6px 0; }
+
+  tr.trow td { background:var(--surface); padding:9px 10px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); vertical-align:middle; }
+  tr.trow td:first-child { border-radius:0 0 0 0; border-left:1px solid var(--border); }
+  tr.trow td:last-child  { border-right:1px solid var(--border); border-radius:0 6px 6px 0; }
+  tr.trow:hover td { background:var(--surface2); }
+  tr.trow.done td { opacity:.55; }
+  tr.trow.done td:last-child { opacity:1; }
+  tr.trow.done .tname { text-decoration:line-through; color:var(--muted); }
+
+  /* ── LEFT coloured stripe per category ── */
+  tr.trow td:first-child { border-left:4px solid var(--border) !important; }
+  tr.cat-onpage    td:first-child { border-left:4px solid var(--c-onpage)    !important; border-radius:6px 0 0 6px; }
+  tr.cat-technical td:first-child { border-left:4px solid var(--c-technical) !important; border-radius:6px 0 0 6px; }
+  tr.cat-offpage   td:first-child { border-left:4px solid var(--c-offpage)   !important; border-radius:6px 0 0 6px; }
+  tr.cat-aio       td:first-child { border-left:4px solid var(--c-aio)       !important; border-radius:6px 0 0 6px; }
+  tr.cat-geo       td:first-child { border-left:4px solid var(--c-geo)       !important; border-radius:6px 0 0 6px; }
+  tr.cat-frontend  td:first-child { border-left:4px solid var(--c-frontend)  !important; border-radius:6px 0 0 6px; }
+  tr.cat-backend   td:first-child { border-left:4px solid var(--c-backend)   !important; border-radius:6px 0 0 6px; }
+  tr.cat-content   td:first-child { border-left:4px solid var(--c-content)   !important; border-radius:6px 0 0 6px; }
+
+  /* ── BOTTOM coloured underline per category ── */
+  tr.cat-onpage    td { border-bottom:1.5px solid rgba(59,130,246,.35)  !important; }
+  tr.cat-technical td { border-bottom:1.5px solid rgba(168,85,247,.35)  !important; }
+  tr.cat-offpage   td { border-bottom:1.5px solid rgba(249,115,22,.35)  !important; }
+  tr.cat-aio       td { border-bottom:1.5px solid rgba(6,182,212,.35)   !important; }
+  tr.cat-geo       td { border-bottom:1.5px solid rgba(16,185,129,.35)  !important; }
+  tr.cat-frontend  td { border-bottom:1.5px solid rgba(245,158,11,.35)  !important; }
+  tr.cat-backend   td { border-bottom:1.5px solid rgba(236,72,153,.35)  !important; }
+  tr.cat-content   td { border-bottom:1.5px solid rgba(132,204,22,.35)  !important; }
+
+  /* ── TOP coloured underline per category ── */
+  tr.cat-onpage    td { border-top:1px solid rgba(59,130,246,.18)  !important; }
+  tr.cat-technical td { border-top:1px solid rgba(168,85,247,.18)  !important; }
+  tr.cat-offpage   td { border-top:1px solid rgba(249,115,22,.18)  !important; }
+  tr.cat-aio       td { border-top:1px solid rgba(6,182,212,.18)   !important; }
+  tr.cat-geo       td { border-top:1px solid rgba(16,185,129,.18)  !important; }
+  tr.cat-frontend  td { border-top:1px solid rgba(245,158,11,.18)  !important; }
+  tr.cat-backend   td { border-top:1px solid rgba(236,72,153,.18)  !important; }
+  tr.cat-content   td { border-top:1px solid rgba(132,204,22,.18)  !important; }
+
+  /* subtle tinted row background per category */
+  tr.cat-onpage    td { background: #12151c; }
+  tr.cat-technical td { background: #13111e; }
+  tr.cat-offpage   td { background: #14120e; }
+  tr.cat-aio       td { background: #0e1518; }
+  tr.cat-geo       td { background: #0e1612; }
+  tr.cat-frontend  td { background: #15130e; }
+  tr.cat-backend   td { background: #15101a; }
+  tr.cat-content   td { background: #12150e; }
+  tr.cat-onpage:hover    td { background:#161c26 !important; }
+  tr.cat-technical:hover td { background:#17122a !important; }
+  tr.cat-offpage:hover   td { background:#1e1610 !important; }
+  tr.cat-aio:hover       td { background:#0e1c22 !important; }
+  tr.cat-geo:hover       td { background:#101e18 !important; }
+  tr.cat-frontend:hover  td { background:#1e1a10 !important; }
+  tr.cat-backend:hover   td { background:#1e1020 !important; }
+  tr.cat-analytics td:first-child { border-left:4px solid var(--c-analytics) !important; border-radius:6px 0 0 6px; }
+  tr.cat-console   td:first-child { border-left:4px solid var(--c-console)   !important; border-radius:6px 0 0 6px; }
+  tr.cat-pagewise  td:first-child { border-left:4px solid var(--c-pagewise)  !important; border-radius:6px 0 0 6px; }
+
+  tr.cat-analytics td { border-bottom:1.5px solid rgba(232,121,249,.35) !important; }
+  tr.cat-console   td { border-bottom:1.5px solid rgba(56,189,248,.35)  !important; }
+  tr.cat-pagewise  td { border-bottom:1.5px solid rgba(251,113,133,.35) !important; }
+
+  tr.cat-analytics td { border-top:1px solid rgba(232,121,249,.18) !important; }
+  tr.cat-console   td { border-top:1px solid rgba(56,189,248,.18)  !important; }
+  tr.cat-pagewise  td { border-top:1px solid rgba(251,113,133,.18) !important; }
+
+  tr.cat-analytics td { background:#150d1a; }
+  tr.cat-console   td { background:#0c1520; }
+  tr.cat-pagewise  td { background:#180e10; }
+  tr.cat-analytics:hover td { background:#1e1028 !important; }
+  tr.cat-console:hover   td { background:#0f1e2e !important; }
+  tr.cat-pagewise:hover  td { background:#221016 !important; }
+
+  .chk { width:17px; height:17px; border-radius:4px; border:2px solid var(--border); appearance:none; cursor:pointer; display:block; background:transparent; position:relative; transition:all .15s; }
+  .chk:checked { background:var(--accent3); border-color:var(--accent3); }
+  .chk:checked::after { content:'✓'; position:absolute; top:-1px; left:2px; font-size:11px; color:#000; font-weight:900; }
+
+  .badge { display:inline-flex; padding:2px 7px; border-radius:4px; font-size:10px; font-weight:700; white-space:nowrap; }
+  .bseo  { background:rgba(59,130,246,.15); color:#93c5fd; border:1px solid rgba(59,130,246,.3); }
+  .bdev  { background:rgba(168,85,247,.15); color:#d8b4fe; border:1px solid rgba(168,85,247,.3); }
+  .bfe   { background:rgba(249,115,22,.15); color:#fdba74; border:1px solid rgba(249,115,22,.3); }
+  .bbe   { background:rgba(6,182,212,.15); color:#67e8f9; border:1px solid rgba(6,182,212,.3); }
+  .bboth { background:rgba(16,185,129,.15); color:#6ee7b7; border:1px solid rgba(16,185,129,.3); }
+  .bhigh { background:rgba(239,68,68,.15); color:#fca5a5; border:1px solid rgba(239,68,68,.3); }
+  .bmed  { background:rgba(245,158,11,.15); color:#fcd34d; border:1px solid rgba(245,158,11,.3); }
+  .blow  { background:rgba(100,116,139,.15); color:#94a3b8; border:1px solid rgba(100,116,139,.3); }
+  .bcat-onpage    { background:rgba(59,130,246,.15);  color:#93c5fd; border:1px solid rgba(59,130,246,.4); }
+  .bcat-technical { background:rgba(168,85,247,.15);  color:#d8b4fe; border:1px solid rgba(168,85,247,.4); }
+  .bcat-offpage   { background:rgba(249,115,22,.15);  color:#fdba74; border:1px solid rgba(249,115,22,.4); }
+  .bcat-aio       { background:rgba(6,182,212,.15);   color:#67e8f9; border:1px solid rgba(6,182,212,.4); }
+  .bcat-geo       { background:rgba(16,185,129,.15);  color:#6ee7b7; border:1px solid rgba(16,185,129,.4); }
+  .bcat-frontend  { background:rgba(245,158,11,.15);  color:#fcd34d; border:1px solid rgba(245,158,11,.4); }
+  .bcat-backend   { background:rgba(236,72,153,.15);  color:#f9a8d4; border:1px solid rgba(236,72,153,.4); }
+  .bcat-content   { background:rgba(132,204,22,.15);  color:#bef264; border:1px solid rgba(132,204,22,.4); }
+  .bcat-analytics { background:rgba(232,121,249,.15); color:#f0abfc; border:1px solid rgba(232,121,249,.4); }
+  .bcat-console   { background:rgba(56,189,248,.15);  color:#7dd3fc; border:1px solid rgba(56,189,248,.4); }
+  .bcat-pagewise  { background:rgba(251,113,133,.15); color:#fda4af; border:1px solid rgba(251,113,133,.4); }
+
+  .tname { font-size:13px; font-weight:500; }
+  .tdesc { font-size:11px; color:var(--muted); margin-top:1px; line-height:1.4; }
+  .ppill { display:inline-flex; padding:1px 6px; border-radius:3px; font-size:10px; background:var(--surface2); border:1px solid var(--border); color:var(--muted); }
+  .note-in { background:transparent; border:none; border-bottom:1px solid transparent; color:var(--muted); font-size:11px; font-family:'DM Sans',sans-serif; width:100%; min-width:90px; outline:none; padding:2px 0; transition:border-color .2s; }
+  .note-in:focus { border-bottom-color:var(--accent); color:var(--text); }
+  .note-in::placeholder { color:var(--border); }
+
+  .empty { text-align:center; padding:60px; color:var(--muted); }
+
+  ::-webkit-scrollbar { width:4px; height:4px; }
+  ::-webkit-scrollbar-track { background:var(--bg); }
+  ::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
+
+  @media (max-width:700px) { .sidebar { display:none; } .layout { height:auto; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="hbrand">
+    <div class="logo">GMR</div>
+    <div>
+      <div class="htitle">SEO · AIO · GEO Master Checklist</div>
+      <div class="hsub">Staging: uatxyz.gmrgroup.in → Push to Production</div>
+    </div>
+  </div>
+  <div class="hstats">
+    <div class="pill"><b id="tc" style="color:var(--accent)">0</b> Total</div>
+    <div class="pill"><b id="dc" style="color:var(--accent3)">0</b> Done</div>
+    <div class="pill"><b id="pc" style="color:var(--warn)">0</b> Pending</div>
+    <div class="pill"><b id="pp" style="color:var(--accent)">0%</b> Complete</div>
+    <button class="btn-exp" onclick="exportCSV()">⬇ Export CSV</button>
+    <button class="btn-add" onclick="openModal()">＋ Add Task</button>
+  </div>
+</div>
+
+<div class="tabs" id="tabs-bar">
+  <button class="tab active" onclick="switchTab('all',this)">🗂 All <span class="tbadge" id="tb-all">0</span></button>
+  <button class="tab" onclick="switchTab('onpage',this)">📄 On-Page SEO <span class="tbadge" id="tb-onpage">0</span></button>
+  <button class="tab" onclick="switchTab('technical',this)">⚙️ Technical SEO <span class="tbadge" id="tb-technical">0</span></button>
+  <button class="tab" onclick="switchTab('offpage',this)">🔗 Off-Page SEO <span class="tbadge" id="tb-offpage">0</span></button>
+  <button class="tab" onclick="switchTab('aio',this)">🤖 AIO <span class="tbadge" id="tb-aio">0</span></button>
+  <button class="tab" onclick="switchTab('geo',this)">🌍 GEO <span class="tbadge" id="tb-geo">0</span></button>
+  <button class="tab" onclick="switchTab('analytics',this)">📊 Analytics GA4 <span class="tbadge" id="tb-analytics">0</span></button>
+  <button class="tab" onclick="switchTab('console',this)">🔎 Search Console <span class="tbadge" id="tb-console">0</span></button>
+  <button class="tab" onclick="switchTab('pagewise',this)">🗃 Per-Page SEO <span class="tbadge" id="tb-pagewise">0</span></button>
+  <button class="tab" onclick="switchTab('frontend',this)">🎨 Frontend Dev <span class="tbadge" id="tb-frontend">0</span></button>
+  <button class="tab" onclick="switchTab('backend',this)">🛢 Backend Dev <span class="tbadge" id="tb-backend">0</span></button>
+  <button class="tab" onclick="switchTab('content',this)">✍️ Content <span class="tbadge" id="tb-content">0</span></button>
+</div>
+
+<div class="layout">
+  <div class="sidebar" id="sb"></div>
+  <div class="content">
+    <div class="fbar">
+      <input class="fsearch" id="srch" placeholder="🔍 Search tasks, pages, owners…" oninput="render()">
+      <button class="fbtn active" onclick="setF('all',this)">All</button>
+      <button class="fbtn" onclick="setF('pending',this)">Pending</button>
+      <button class="fbtn" onclick="setF('done',this)">Done</button>
+      <button class="fbtn" onclick="setF('high',this)">🔴 High</button>
+      <button class="fbtn" onclick="setF('medium',this)">🟡 Med</button>
+      <button class="fbtn" onclick="setF('low',this)">⚪ Low</button>
+    </div>
+    <div class="legend">
+      <div class="li"><div class="ld" style="background:var(--c-onpage)"></div>On-Page SEO</div>
+      <div class="li"><div class="ld" style="background:var(--c-technical)"></div>Technical SEO</div>
+      <div class="li"><div class="ld" style="background:var(--c-offpage)"></div>Off-Page SEO</div>
+      <div class="li"><div class="ld" style="background:var(--c-aio)"></div>AIO</div>
+      <div class="li"><div class="ld" style="background:var(--c-geo)"></div>GEO</div>
+      <div class="li"><div class="ld" style="background:var(--c-analytics)"></div>Analytics GA4</div>
+      <div class="li"><div class="ld" style="background:var(--c-console)"></div>Search Console</div>
+      <div class="li"><div class="ld" style="background:var(--c-pagewise)"></div>Per-Page SEO</div>
+      <div class="li"><div class="ld" style="background:var(--c-frontend)"></div>Frontend Dev</div>
+      <div class="li"><div class="ld" style="background:var(--c-backend)"></div>Backend Dev</div>
+      <div class="li"><div class="ld" style="background:var(--c-content)"></div>Content</div>
+    </div>
+    <div class="legend" style="margin-top:-8px">
+      <div class="li"><div class="ld" style="background:#93c5fd"></div>SEO Person</div>
+      <div class="li"><div class="ld" style="background:#d8b4fe"></div>Developer</div>
+      <div class="li"><div class="ld" style="background:#fdba74"></div>Frontend Dev</div>
+      <div class="li"><div class="ld" style="background:#67e8f9"></div>Backend Dev</div>
+      <div class="li"><div class="ld" style="background:#6ee7b7"></div>SEO + Dev Both</div>
+    </div>
+    <div class="prog-box">
+      <div>
+        <div class="prog-num" id="pr-pct">0%</div>
+        <div class="prog-info" id="pr-info">0 of 0 completed</div>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="pr-fill" style="width:0%"></div></div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:32px">✓</th>
+          <th style="width:32px">#</th>
+          <th>Task</th>
+          <th>Category</th>
+          <th>Owner</th>
+          <th>Priority</th>
+          <th>Page / Scope</th>
+          <th style="min-width:120px">Notes</th>
+          <th style="width:64px">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div id="empty" class="empty" style="display:none"><div style="font-size:36px">🔍</div><div>No tasks match filter</div></div>
+  </div>
+</div>
+
+
+<!-- ── MODAL OVERLAY + DIALOG ── -->
+<div id="modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;backdrop-filter:blur(4px);" onclick="closeModal(event)"></div>
+<div id="modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1000;width:min(600px,95vw);background:#12151c;border:1px solid #2d3448;border-radius:14px;box-shadow:0 24px 80px rgba(0,0,0,.6);font-family:'DM Sans',sans-serif;">
+  <div style="padding:20px 24px 0;display:flex;align-items:center;justify-content:space-between;">
+    <div id="modal-title" style="font-family:'Syne',sans-serif;font-weight:800;font-size:16px;">＋ Add New Task</div>
+    <button id="modal-close-btn" style="background:none;border:none;color:#64748b;font-size:20px;cursor:pointer;padding:4px 8px;border-radius:6px;line-height:1;">✕</button>
+  </div>
+  <div style="padding:20px 24px;display:grid;gap:14px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div><label class="mlabel">Task Title *</label><input id="m-title" class="minput" placeholder="e.g. Write meta for Blog page"></div>
+      <div><label class="mlabel">Page / Scope *</label><input id="m-page" class="minput" placeholder="e.g. Blog Page, Sitewide"></div>
+    </div>
+    <div><label class="mlabel">Description / Details</label><textarea id="m-desc" class="minput" rows="2" placeholder="Instructions or acceptance criteria…" style="resize:vertical;"></textarea></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+      <div>
+        <label class="mlabel">Category</label>
+        <select id="m-cat" class="minput">
+          <option value="custom">⭐ Custom</option>
+          <option value="onpage">📄 On-Page SEO</option>
+          <option value="technical">⚙️ Technical SEO</option>
+          <option value="offpage">🔗 Off-Page SEO</option>
+          <option value="aio">🤖 AIO</option>
+          <option value="geo">🌍 GEO</option>
+          <option value="analytics">📊 Analytics GA4</option>
+          <option value="console">🔎 Search Console</option>
+          <option value="pagewise">🗃 Per-Page SEO</option>
+          <option value="frontend">🎨 Frontend Dev</option>
+          <option value="backend">🛢 Backend Dev</option>
+          <option value="content">✍️ Content</option>
+        </select>
+      </div>
+      <div>
+        <label class="mlabel">Owner</label>
+        <select id="m-owner" class="minput">
+          <option value="seo">SEO Person</option>
+          <option value="both">SEO + Dev Both</option>
+          <option value="frontend">Frontend Dev</option>
+          <option value="backend">Backend Dev</option>
+          <option value="dev">Developer</option>
+        </select>
+      </div>
+      <div>
+        <label class="mlabel">Priority</label>
+        <select id="m-prio" class="minput">
+          <option value="high">🔴 High</option>
+          <option value="medium">🟡 Medium</option>
+          <option value="low">⚪ Low</option>
+        </select>
+      </div>
+    </div>
+    <div><label class="mlabel">Notes (optional)</label><input id="m-note" class="minput" placeholder="Assignee, deadline, link…"></div>
+    <div id="modal-err" style="display:none;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:6px;padding:8px 12px;font-size:12px;color:#fca5a5;"></div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;padding-top:4px;">
+      <button id="modal-cancel-btn" style="background:#1a1e28;border:1px solid #252a38;color:#64748b;border-radius:8px;padding:9px 20px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;">Cancel</button>
+      <button id="modal-save-btn" style="background:#e8a020;color:#000;border:none;border-radius:8px;padding:9px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;">Save Task</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── EXTRA STYLES ── -->
+<style>
+  .btn-add{background:#10b981;color:#000;border:none;border-radius:7px;padding:7px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity .2s;}
+  .btn-add:hover{opacity:.85;}
+  .mlabel{display:block;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+  .minput{width:100%;background:#1a1e28;border:1px solid #252a38;border-radius:7px;padding:8px 11px;color:#e2e8f0;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;box-sizing:border-box;transition:border-color .2s;}
+  .minput:focus{border-color:#e8a020;}
+  .minput option{background:#1a1e28;}
+  .act-btn{background:none;border:none;cursor:pointer;padding:4px 6px;border-radius:4px;font-size:14px;opacity:.5;transition:opacity .15s,background .15s;line-height:1;}
+  .act-btn:hover{opacity:1;background:#1a1e28;}
+  .bcat-custom{background:rgba(232,160,32,.15);color:#fcd34d;border:1px solid rgba(232,160,32,.4);}
+  tr.cat-custom td:first-child{border-left:4px solid #e8a020!important;}
+  tr.cat-custom td{background:#15120a;border-bottom:1.5px solid rgba(232,160,32,.25)!important;}
+  tr.cat-custom:hover td{background:#1e1a0e!important;}
+  #saved-toast{position:fixed;bottom:18px;right:18px;background:#1a1e28;border:1px solid #252a38;border-radius:8px;padding:8px 14px;font-size:12px;color:#10b981;z-index:9999;opacity:0;transition:opacity .3s;font-family:'DM Sans',sans-serif;pointer-events:none;}
+</style>
+<div id="saved-toast">✓ Saved</div>
+
+<script>
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [
+  // ON-PAGE SEO
+  {id:1,cat:'onpage',title:'Write unique Title Tag — Homepage',desc:'Max 60 chars. Include "GMR Group" + primary keyword e.g. "Global Infrastructure Conglomerate | India"',owner:'seo',priority:'high',page:'Homepage'},
+  {id:2,cat:'onpage',title:'Write Meta Description — Homepage',desc:'Max 155 chars. Compelling, keyword-rich, CTA-driven summary',owner:'seo',priority:'high',page:'Homepage'},
+  {id:3,cat:'onpage',title:'Title Tags — All Airport Pages (9 airports)',desc:'Delhi, Hyderabad, Goa, Nagpur, Vizag, Bidar, Cebu, Greece, Indonesia — unique title per page',owner:'seo',priority:'high',page:'Airport Pages'},
+  {id:4,cat:'onpage',title:'Meta Descriptions — All Airport Pages',desc:'Unique per airport; include airport name, city, country',owner:'seo',priority:'high',page:'Airport Pages'},
+  {id:5,cat:'onpage',title:'Title + Meta — About, Vision, Journey, Partners pages',desc:'About Us, Vision & Values, Our Journey, Our Partners, Corporate Governance',owner:'seo',priority:'high',page:'About Section'},
+  {id:6,cat:'onpage',title:'Title + Meta — All Energy sub-pages',desc:'Energy overview + Warora, Kamalanga, Solar Gujarat/Goa/Rajam/Delhi, Hydro, Smart Meters',owner:'seo',priority:'high',page:'Energy Section'},
+  {id:7,cat:'onpage',title:'Title + Meta — Sports section',desc:'Sports overview + Delhi Capitals, UP Yoddhas, Dubai Capitals, India Capitals, Telugu Yoddhas',owner:'seo',priority:'medium',page:'Sports Section'},
+  {id:8,cat:'onpage',title:'Title + Meta — Foundation / CSR page',desc:'GMR Varalakshmi Foundation CSR page',owner:'seo',priority:'medium',page:'Foundation Page'},
+  {id:9,cat:'onpage',title:'Title + Meta — Careers + FAQs',desc:'Grow With Us, Working@GMR, FAQs, Fake Job disclaimer pages',owner:'seo',priority:'medium',page:'Careers Section'},
+  {id:10,cat:'onpage',title:'Title + Meta — Investor Relations (GAL, GPUIL)',desc:'Investor overview, GAL page, GPUIL page',owner:'seo',priority:'high',page:'Investor Relations'},
+  {id:11,cat:'onpage',title:'Title + Meta — Media and Blog section',desc:'Blog index page + individual post templates',owner:'seo',priority:'medium',page:'Media / Blog'},
+  {id:12,cat:'onpage',title:'Title + Meta — Other Businesses (Logistics, RAXA)',desc:'GMR Logistics, RAXA Techno Security pages',owner:'seo',priority:'medium',page:'Other Businesses'},
+  {id:13,cat:'onpage',title:'Add canonical tags to all pages',desc:'Self-referencing canonical on every URL; handle www vs non-www and trailing slash consistency',owner:'both',priority:'high',page:'Sitewide'},
+  {id:14,cat:'onpage',title:'Implement H1 tag on every page (exactly one)',desc:'Each page must have exactly one H1 matching the primary keyword intent of that page',owner:'both',priority:'high',page:'Sitewide'},
+  {id:15,cat:'onpage',title:'Correct H2–H6 heading hierarchy',desc:'No skipping heading levels; logical semantic structure throughout all pages',owner:'both',priority:'high',page:'Sitewide'},
+  {id:16,cat:'onpage',title:'Add descriptive alt text to ALL images',desc:'Every <img> needs descriptive alt; no blank alts, no keyword stuffing',owner:'both',priority:'high',page:'Sitewide'},
+  {id:17,cat:'onpage',title:'Rename image files with keywords before upload',desc:'gmr-delhi-indira-gandhi-airport.jpg not IMG_0023.jpg',owner:'seo',priority:'medium',page:'Sitewide'},
+  {id:18,cat:'onpage',title:'Internal links: Homepage → All major sections',desc:'Airports, Energy, Sports, Foundation, Careers, Investor Relations all linked from homepage',owner:'seo',priority:'high',page:'Homepage'},
+  {id:19,cat:'onpage',title:'Internal linking across all Airport pages',desc:'Cross-link related airports; link from aerocity pages to airport pages and vice versa',owner:'seo',priority:'high',page:'Airport Pages'},
+  {id:20,cat:'onpage',title:'Internal linking across Energy section',desc:'Energy overview → all sub-projects; sub-projects link to overview and related pages',owner:'seo',priority:'medium',page:'Energy Section'},
+  {id:21,cat:'onpage',title:'Use keyword-rich anchor text on all internal links',desc:'Replace "click here", "read more", "learn more" with descriptive anchor text throughout',owner:'seo',priority:'high',page:'Sitewide'},
+  {id:22,cat:'onpage',title:'Implement Open Graph tags (og:title, og:description, og:image)',desc:'Required for social sharing previews on LinkedIn, Facebook, WhatsApp',owner:'both',priority:'high',page:'Sitewide'},
+  {id:23,cat:'onpage',title:'Implement Twitter Card meta tags',desc:'twitter:card, twitter:title, twitter:description, twitter:image on all pages',owner:'both',priority:'medium',page:'Sitewide'},
+  {id:24,cat:'onpage',title:'Create and assign OG images (1200×630px) per section',desc:'Branded GMR image for Homepage, Airports, Energy, Sports, Foundation sections',owner:'seo',priority:'high',page:'Sitewide'},
+  {id:25,cat:'onpage',title:'Fix duplicate / templated content on airport pages',desc:'Each airport page must have unique copy — not copy-pasted boilerplate',owner:'seo',priority:'high',page:'Airport Pages'},
+  {id:26,cat:'onpage',title:'Keyword research + keyword-to-page mapping document',desc:'Map primary + secondary + LSI keywords to every page on the site',owner:'seo',priority:'high',page:'All Pages'},
+  {id:27,cat:'onpage',title:'Add FAQ sections on key landing pages',desc:'Airports, Energy, Careers, Foundation — 5–8 FAQs each using search-intent questions',owner:'seo',priority:'medium',page:'Key Landing Pages'},
+  {id:28,cat:'onpage',title:'Implement breadcrumb navigation on interior pages',desc:'Clickable breadcrumbs for UX + SEO on all sub-level pages',owner:'frontend',priority:'medium',page:'Interior Pages'},
+  {id:29,cat:'onpage',title:'Ensure all key pages have ≥300 words of unique content',desc:'Airport sub-pages, Energy sub-pages, Urban Infrastructure pages are currently thin',owner:'seo',priority:'high',page:'All Section Pages'},
+  {id:30,cat:'onpage',title:'Optimise existing blog posts (keywords, metadata, links)',desc:'Review all current GMR blog posts; add meta, proper headings, internal links',owner:'seo',priority:'medium',page:'Blog Posts'},
+
+  // TECHNICAL SEO
+  {id:31,cat:'technical',title:'Create and submit XML sitemap to Google Search Console',desc:'Include all indexable URLs; exclude /admin, PDFs, staging paths; submit via GSC',owner:'both',priority:'high',page:'Sitewide'},
+  {id:32,cat:'technical',title:'Configure robots.txt correctly',desc:'Allow Googlebot; block /admin, /wp-admin, staging sub-domains, /api/, /temp/',owner:'backend',priority:'high',page:'Sitewide'},
+  {id:33,cat:'technical',title:'Force HTTPS sitewide (SSL + 301 redirect from HTTP)',desc:'All HTTP URLs must 301 to HTTPS; update all internal asset references',owner:'backend',priority:'high',page:'Sitewide'},
+  {id:34,cat:'technical',title:'Map + implement 301 redirects: staging → production URLs',desc:'Every staging URL needs a corresponding live URL redirect before go-live',owner:'backend',priority:'high',page:'Staging → Live'},
+  {id:35,cat:'technical',title:'Crawl + fix all broken links (4xx errors)',desc:'Use Screaming Frog to crawl; fix or redirect all broken internal and external links',owner:'both',priority:'high',page:'Sitewide'},
+  {id:36,cat:'technical',title:'Eliminate redirect chains and redirect loops',desc:'No 301→301→301 chains; single-hop redirects only. Test all redirect paths.',owner:'backend',priority:'high',page:'Sitewide'},
+  {id:37,cat:'technical',title:'Block staging site from Google (noindex + password)',desc:'uatxyz.gmrgroup.in must have noindex in meta robots AND robots.txt; ideally IP-restricted',owner:'both',priority:'high',page:'Staging Site'},
+  {id:38,cat:'technical',title:'Core Web Vitals: LCP < 2.5s, CLS < 0.1, FID < 100ms',desc:'Run Google PageSpeed Insights and Lighthouse on homepage, airport, energy pages',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:39,cat:'technical',title:'Enable Gzip or Brotli compression on server',desc:'Server-level compression for HTML, CSS, JS, SVG files',owner:'backend',priority:'high',page:'Server'},
+  {id:40,cat:'technical',title:'Implement browser caching (Cache-Control headers)',desc:'Static assets: 1 year max-age. HTML: 0 or short TTL. Configured at server/CDN level.',owner:'backend',priority:'high',page:'Server'},
+  {id:41,cat:'technical',title:'Minify HTML, CSS, and JavaScript',desc:'Remove whitespace, comments, unused CSS/JS from production build',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:42,cat:'technical',title:'Convert images to WebP/AVIF + lazy load',desc:'Use next-gen image formats; serve via srcset; loading="lazy" on below-fold images',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:43,cat:'technical',title:'Serve images + static assets via CDN',desc:'Use CloudFront or Cloudflare CDN; critical for international airport audiences',owner:'backend',priority:'high',page:'Infrastructure'},
+  {id:44,cat:'technical',title:'Implement Organization schema (JSON-LD) on Homepage',desc:'name, url, logo, foundingDate, sameAs (social profiles), address, description',owner:'both',priority:'high',page:'Homepage'},
+  {id:45,cat:'technical',title:'Implement BreadcrumbList schema on all interior pages',desc:'Structured breadcrumb data for rich results in Google SERPs',owner:'both',priority:'medium',page:'Interior Pages'},
+  {id:46,cat:'technical',title:'Implement FAQPage schema on all FAQ sections',desc:'Every page with FAQ content needs FAQPage schema (JSON-LD)',owner:'both',priority:'high',page:'FAQ Pages'},
+  {id:47,cat:'technical',title:'Implement Article schema on all Blog posts',desc:'author, datePublished, dateModified, headline, image, publisher fields',owner:'both',priority:'medium',page:'Blog Posts'},
+  {id:48,cat:'technical',title:'Implement SiteLinksSearchBox schema',desc:'Enables search box in Google SERP for branded queries — add to homepage',owner:'both',priority:'medium',page:'Homepage'},
+  {id:49,cat:'technical',title:'Implement Person schema for leadership profiles',desc:'GM Rao, Kiran Kumar Grandhi, GBS Raju and other board members',owner:'both',priority:'medium',page:'Group Holdings Board'},
+  {id:50,cat:'technical',title:'Implement Airport/LocalBusiness schema per airport page',desc:'name, iataCode, address, geo, servesCuisine, openingHours per airport page',owner:'both',priority:'medium',page:'Airport Sub-Pages'},
+  {id:51,cat:'technical',title:'Ensure full mobile responsiveness (320px–1440px)',desc:'Test all pages on mobile; fix layout breaks, horizontal scroll, oversized tap targets',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:52,cat:'technical',title:'Fix mobile usability issues (tap targets ≥48px, fonts ≥16px)',desc:'Google Search Console flags these as mobile usability errors',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:53,cat:'technical',title:'Set up Google Search Console (production domain)',desc:'Add+verify property; submit sitemap; monitor index coverage from day 1',owner:'seo',priority:'high',page:'Production'},
+  {id:54,cat:'technical',title:'Set up Google Analytics 4 (GA4)',desc:'Install GA4 tag; configure key events: page_view, scroll, form_submit, click',owner:'both',priority:'high',page:'Sitewide'},
+  {id:55,cat:'technical',title:'Set up Bing Webmaster Tools',desc:'Verify production domain on Bing; submit sitemap',owner:'seo',priority:'medium',page:'Production'},
+  {id:56,cat:'technical',title:'Fix javascript:void(0) navigation links (ALL nav items)',desc:'Current nav uses javascript:void for all links — crawlers and screen readers cannot follow these',owner:'frontend',priority:'high',page:'Navigation'},
+  {id:57,cat:'technical',title:'Configure custom 404 page with search + navigation',desc:'404 must include site header, search bar, links to key sections',owner:'frontend',priority:'medium',page:'404 Page'},
+  {id:58,cat:'technical',title:'Optimise TTFB (Time to First Byte) < 200ms',desc:'Server response time target < 200ms; implement caching, CDN, query optimisation',owner:'backend',priority:'high',page:'Server'},
+  {id:59,cat:'technical',title:'Resolve all mixed content issues (HTTP on HTTPS)',desc:'Audit every asset URL; update all to HTTPS',owner:'backend',priority:'high',page:'Sitewide'},
+  {id:60,cat:'technical',title:'Clean URL structure (no ?id=12 parameters)',desc:'Ensure URLs follow /airports/delhi-airport/ pattern sitewide',owner:'backend',priority:'high',page:'Sitewide'},
+  {id:61,cat:'technical',title:'Add rel="noopener noreferrer" to all external links',desc:'Security + SEO best practice for all target="_blank" links',owner:'frontend',priority:'medium',page:'Sitewide'},
+  {id:62,cat:'technical',title:'Full Screaming Frog crawl + issue resolution before go-live',desc:'Export crawl; fix all errors (4xx, 5xx, missing meta, duplicate titles) before launch',owner:'seo',priority:'high',page:'Pre-Launch'},
+  {id:63,cat:'technical',title:'Test all structured data with Google Rich Results Test',desc:'Every schema must pass the Rich Results Test before go-live',owner:'both',priority:'high',page:'Pre-Launch'},
+  {id:64,cat:'technical',title:'Set up dynamic / auto-updating XML sitemap',desc:'Sitemap regenerates automatically when new pages or posts are published',owner:'backend',priority:'medium',page:'CMS / Backend'},
+  {id:65,cat:'technical',title:'Handle canonical for trailing slash consistency',desc:'Choose /airports/ or /airports consistently; redirect the other with 301',owner:'backend',priority:'medium',page:'Sitewide'},
+  {id:66,cat:'technical',title:'Implement hreflang for international airport pages',desc:'If multilingual content exists for Cebu, Greece, Indonesia pages',owner:'both',priority:'medium',page:'International Pages'},
+  {id:67,cat:'technical',title:'Configure CMS for SEO field editing (no-code metadata editing)',desc:'SEO team must be able to edit title/meta/canonical without developer help',owner:'backend',priority:'high',page:'CMS'},
+  {id:68,cat:'technical',title:'Verify all pages indexed correctly post-launch (48hr check)',desc:'Use GSC URL inspection tool; check coverage report 48hrs after launch',owner:'seo',priority:'high',page:'Post-Launch'},
+  {id:69,cat:'technical',title:'Set up server uptime monitoring (99.9% target)',desc:'Use UptimeRobot, Pingdom, or AWS CloudWatch; alert on downtime',owner:'backend',priority:'high',page:'Server'},
+  {id:70,cat:'technical',title:'Ensure all PDFs accessible via proper HTML links',desc:'Code of Conduct PDF and all document links must work and be crawlable',owner:'both',priority:'medium',page:'Document Pages'},
+
+  // OFF-PAGE SEO
+  {id:71,cat:'offpage',title:'Create/verify GMR Group Google Business Profile',desc:'NAP consistency (Name, Address, Phone); add website URL, description, categories',owner:'seo',priority:'high',page:'Google Business'},
+  {id:72,cat:'offpage',title:'Claim and optimise Bing Places listing',desc:'Match GMR Group listing on Bing Places for Business',owner:'seo',priority:'medium',page:'Bing Places'},
+  {id:73,cat:'offpage',title:'Backlink audit (Ahrefs/Semrush)',desc:'Analyse full backlink profile; identify toxic links for disavow; find competitor link gaps',owner:'seo',priority:'high',page:'Off-Site'},
+  {id:74,cat:'offpage',title:'Disavow toxic/spammy backlinks via GSC',desc:'After audit — upload disavow file for all harmful links',owner:'seo',priority:'high',page:'Off-Site'},
+  {id:75,cat:'offpage',title:'Ensure Wikipedia article links to live production site',desc:'GMR Group Wikipedia already exists; verify outbound link goes to correct URL',owner:'seo',priority:'high',page:'Wikipedia'},
+  {id:76,cat:'offpage',title:'Submit/update GMR on Crunchbase, Bloomberg, Forbes India',desc:'High-DA business authority directories; critical for brand signals',owner:'seo',priority:'high',page:'Authority Directories'},
+  {id:77,cat:'offpage',title:'Submit to Indian infrastructure directories (CII, FICCI, ASSOCHAM)',desc:'Industry associations where GMR should have citations',owner:'seo',priority:'medium',page:'Industry Directories'},
+  {id:78,cat:'offpage',title:'Submit airport pages to aviation databases (ACI World, CAPA)',desc:'Airports Council International and CAPA Centre for Aviation listings',owner:'seo',priority:'high',page:'Aviation Directories'},
+  {id:79,cat:'offpage',title:'PR outreach — ET, Business Standard, Mint, Business Today',desc:'Target at least 2 high-DA media mentions per month linking to gmrgroup.in',owner:'seo',priority:'high',page:'PR / Media'},
+  {id:80,cat:'offpage',title:'NAP citation consistency across all directories',desc:'Consistent Name/Address/Phone on Justdial, IndiaMart, Yellow Pages India',owner:'seo',priority:'medium',page:'Local Citations'},
+  {id:81,cat:'offpage',title:'Set up brand monitoring (Google Alerts, Mention.com)',desc:'Alert on "GMR Group" mentions for outreach and unlinked mention reclamation',owner:'seo',priority:'medium',page:'Brand Monitoring'},
+  {id:82,cat:'offpage',title:'Pursue .gov/.edu backlinks via CSR and infrastructure partnerships',desc:'GMR Foundation ties to government programs — leverage for high-authority links',owner:'seo',priority:'medium',page:'Link Building'},
+  {id:83,cat:'offpage',title:'Guest posting on infrastructure / aviation DA40+ sites',desc:'Target construction, energy, aviation industry blogs with genuine editorial links',owner:'seo',priority:'medium',page:'Link Building'},
+  {id:84,cat:'offpage',title:'Cross-linking with DIAL, GHIAL, Goa Airport subsidiary sites',desc:'GMR subsidiary airport websites should reference and link to gmrgroup.in',owner:'seo',priority:'medium',page:'Subsidiary Sites'},
+  {id:85,cat:'offpage',title:'Complete brand profiles: LinkedIn, YouTube, Facebook, Twitter/X',desc:'Complete all fields; link back to gmrgroup.in in all social bios',owner:'seo',priority:'medium',page:'Social Media'},
+  {id:86,cat:'offpage',title:'Submit press releases to PR Newswire / BusinessWire India',desc:'Major project announcements with links to site pages',owner:'seo',priority:'medium',page:'PR Distribution'},
+  {id:87,cat:'offpage',title:'Claim profile on AngelList, ZoomInfo, Glassdoor',desc:'Authority signals for brand trust and employer brand SEO',owner:'seo',priority:'low',page:'Business Profiles'},
+  {id:88,cat:'offpage',title:'Create linkable asset: GMR Infrastructure Impact Report',desc:'Annual report-style content asset attracting natural editorial links',owner:'seo',priority:'medium',page:'Content Assets'},
+
+  // AIO
+  {id:89,cat:'aio',title:'Implement JSON-LD structured data on ALL pages',desc:'JSON-LD is preferred by all AI search systems; replace any inline microdata',owner:'both',priority:'high',page:'Sitewide'},
+  {id:90,cat:'aio',title:'Add comprehensive entity details to About page',desc:'Founded: 1978, Founder: GM Rao, HQ: New Delhi, sectors, employee count, turnover, awards',owner:'seo',priority:'high',page:'About Page'},
+  {id:91,cat:'aio',title:'Add "Key Facts / At a Glance" stat blocks per major section',desc:'Quick-scan stat boxes: airports operated, countries, MW capacity, employees — AI loves these',owner:'seo',priority:'high',page:'About, Airports, Energy'},
+  {id:92,cat:'aio',title:'Write AI-extractable "Who We Are" opening paragraph',desc:'First paragraph = complete factual entity description answerable to AI summary queries',owner:'seo',priority:'high',page:'About / Homepage'},
+  {id:93,cat:'aio',title:'Cite all statistics with source + year (ACI, DGCA, MoCA)',desc:'"2nd largest private airport operator" must cite: Source: ACI World, 2024',owner:'seo',priority:'high',page:'All Stat Pages'},
+  {id:94,cat:'aio',title:'Write airport-entity pages with structured facts (IATA, capacity, year)',desc:'IATA code, city, country, annual capacity, concession model, GMR stake per airport',owner:'seo',priority:'high',page:'Airport Sub-Pages'},
+  {id:95,cat:'aio',title:'Build Wikidata entity for GMR Group',desc:'Wikidata structured entity strengthens AI knowledge graph recognition',owner:'seo',priority:'high',page:'Wikidata'},
+  {id:96,cat:'aio',title:'Update Wikipedia GMR Group article details',desc:'Verify facts, add GMR Nagpur/Vizag airports, update international airports list',owner:'seo',priority:'high',page:'Wikipedia'},
+  {id:97,cat:'aio',title:'Ensure key entity facts are in HTML source (not JS-rendered)',desc:'AI crawlers cannot execute JavaScript; all key facts must be in raw HTML',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:98,cat:'aio',title:'Implement speakable schema on key fact pages',desc:'Allows voice assistants and AI summaries to read aloud key content',owner:'both',priority:'medium',page:'About, Airport Pages'},
+  {id:99,cat:'aio',title:'Consistent brand entity name "GMR Group" across all pages',desc:'No variations (GMR Grp, GMR Infra Group); one canonical entity name throughout',owner:'seo',priority:'high',page:'Sitewide'},
+  {id:100,cat:'aio',title:'Add LLMs.txt file to website root',desc:'Emerging standard (like robots.txt for AI crawlers) — define what AI systems can index/use',owner:'backend',priority:'medium',page:'Website Root'},
+  {id:101,cat:'aio',title:'Write comprehensive FAQ content targeting AI zero-click answers',desc:'Answer "Who owns Delhi Airport?", "How many airports does GMR operate?", "When was GMR founded?"',owner:'seo',priority:'high',page:'FAQ Sections'},
+  {id:102,cat:'aio',title:'Rewrite content to answer natural language questions',desc:'Section intros should answer "What is…", "How does GMR…", "Why is GMR the…" queries',owner:'seo',priority:'medium',page:'Key Pages'},
+  {id:103,cat:'aio',title:'Maintain brand consistency across Crunchbase, Bloomberg, LinkedIn',desc:'Revenue, employee count, founding year must be identical across all platforms',owner:'seo',priority:'medium',page:'Brand Profiles'},
+  {id:104,cat:'aio',title:'Add Event schema to milestones on Our Journey page',desc:'AI systems extract timeline events; add Event schema to each milestone',owner:'both',priority:'medium',page:'Our Journey Page'},
+
+  // GEO
+  {id:105,cat:'geo',title:'Add author bios with credentials to all blog/editorial content',desc:'Author name, role, years experience, LinkedIn URL — E-E-A-T requires identifiable authors',owner:'seo',priority:'high',page:'Blog Posts'},
+  {id:106,cat:'geo',title:'Implement E-E-A-T signals on all content pages',desc:'Experience, Expertise, Authoritativeness, Trustworthiness signals throughout site',owner:'seo',priority:'high',page:'Sitewide'},
+  {id:107,cat:'geo',title:'Publish original research and data reports (Airport Traffic, Energy)',desc:'Original data reports are primary citation sources for AI-generated content',owner:'seo',priority:'high',page:'Media / Reports'},
+  {id:108,cat:'geo',title:'Create "Press Kit" page (logos, boilerplate, approved facts)',desc:'Journalists and AI systems cite official press kits; include key facts, leadership bios',owner:'seo',priority:'medium',page:'New Page Required'},
+  {id:109,cat:'geo',title:'Write definitive guide content: "GMR Airports in India" etc.',desc:'Comprehensive "Definitive Guide" articles that AI systems source from for answers',owner:'seo',priority:'high',page:'Blog / Guides'},
+  {id:110,cat:'geo',title:'Build topical authority clusters (hub + spoke content model)',desc:'Main topic pages (Airports hub) with supporting detailed sub-articles (Delhi Airport deep-dive)',owner:'seo',priority:'high',page:'Blog Strategy'},
+  {id:111,cat:'geo',title:'Publish case studies: Delhi T3, HYD RGIA, Goa Mopa Airport',desc:'Detailed project case studies are cited by AI for "Indian airport development examples"',owner:'seo',priority:'high',page:'New Case Study Pages'},
+  {id:112,cat:'geo',title:'Create Newsroom / Latest Updates section with dated content',desc:'AI systems prefer sites with fresh, dated content; newsroom signals authority',owner:'both',priority:'medium',page:'Media Section'},
+  {id:113,cat:'geo',title:'Attribute all quotes to named individuals with roles',desc:'"Said Kiran Kumar Grandhi, Corporate Chairman, GMR Group" — attributions matter for AI citation',owner:'seo',priority:'medium',page:'News / Press Releases'},
+  {id:114,cat:'geo',title:'Create local GEO pages for key cities (Delhi, Hyderabad, Goa)',desc:'"GMR in Delhi", "GMR in Hyderabad" — local entity pages for geographic AI queries',owner:'seo',priority:'medium',page:'New Location Pages'},
+  {id:115,cat:'geo',title:'Optimise content for voice search and conversational queries',desc:'Content must answer "Hey Google, who runs Delhi airport?" style natural language queries',owner:'seo',priority:'medium',page:'Key Pages'},
+  {id:116,cat:'geo',title:'Convert key PDF reports to HTML pages',desc:'AI cannot index PDFs well; re-publish key reports as crawlable HTML pages',owner:'both',priority:'medium',page:'Reports / Documents'},
+  {id:117,cat:'geo',title:'Create Sustainability / ESG page',desc:'ESG is high-intent for investors, media, AI queries; also builds authority and trust',owner:'seo',priority:'medium',page:'New Page Required'},
+  {id:118,cat:'geo',title:'Submit to AI knowledge bases (DBpedia, Schema.org examples)',desc:'Entity submission to open knowledge graphs used by AI training and retrieval systems',owner:'seo',priority:'low',page:'Knowledge Bases'},
+  {id:119,cat:'geo',title:'Add "Frequently Asked by AI" content blocks on key pages',desc:'Research what ChatGPT/Perplexity/Gemini answer about GMR; ensure those facts are on-page',owner:'seo',priority:'medium',page:'Key Pages'},
+
+  // FRONTEND
+  {id:120,cat:'frontend',title:'Replace ALL javascript:void(0) nav links with real href URLs',desc:'Navigation is currently completely uncrawlable — highest priority frontend fix',owner:'frontend',priority:'high',page:'Navigation'},
+  {id:121,cat:'frontend',title:'Implement responsive images (srcset + sizes attribute)',desc:'Serve correct image dimensions per viewport size; saves bandwidth, improves LCP',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:122,cat:'frontend',title:'Add <html lang="en"> attribute correctly',desc:'lang="en" or "en-IN" on html tag; critical for accessibility and AI language parsing',owner:'frontend',priority:'high',page:'All Pages'},
+  {id:123,cat:'frontend',title:'Add <link rel="preload"> for critical CSS + hero image',desc:'Preload above-fold resources to improve LCP; use for webfonts too',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:124,cat:'frontend',title:'Implement font-display: swap for web fonts',desc:'Prevent invisible text during font load; use font-display: swap on all @font-face',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:125,cat:'frontend',title:'Fix Largest Contentful Paint (LCP) — homepage hero',desc:'Hero image/video must load within 2.5s; preload, compress, CDN-serve hero image',owner:'frontend',priority:'high',page:'Homepage'},
+  {id:126,cat:'frontend',title:'Fix Cumulative Layout Shift (CLS < 0.1)',desc:'Reserve explicit dimensions for all images, banners, ad slots; no layout jumping',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:127,cat:'frontend',title:'Implement JSON-LD schema injection capability in CMS template',desc:'Every page template needs a JSON-LD slot that SEO team can populate without code changes',owner:'frontend',priority:'high',page:'CMS Templates'},
+  {id:128,cat:'frontend',title:'Build breadcrumb component with schema markup',desc:'Visual breadcrumbs + BreadcrumbList JSON-LD on all interior pages',owner:'frontend',priority:'medium',page:'Interior Pages'},
+  {id:129,cat:'frontend',title:'Add cookie consent banner (DPDP Act + GDPR compliant)',desc:'Required for Indian digital compliance; GA4 also requires consent for proper tracking',owner:'frontend',priority:'high',page:'Sitewide'},
+  {id:130,cat:'frontend',title:'Add skip-to-content link for accessibility',desc:'Google uses accessibility as ranking signal; required for WCAG compliance',owner:'frontend',priority:'medium',page:'Sitewide'},
+  {id:131,cat:'frontend',title:'Ensure all interactive elements have ARIA labels',desc:'Buttons, modals, dropdowns, carousels — all need aria-label or aria-labelledby',owner:'frontend',priority:'medium',page:'Sitewide'},
+  {id:132,cat:'frontend',title:'Add rel="canonical" tag rendering in page <head>',desc:'Frontend must inject canonical tag correctly; test that it appears in page source',owner:'frontend',priority:'high',page:'All Pages'},
+  {id:133,cat:'frontend',title:'Implement social share buttons on blog posts',desc:'LinkedIn, Twitter/X, WhatsApp share for blog content amplification',owner:'frontend',priority:'low',page:'Blog Posts'},
+  {id:134,cat:'frontend',title:'Cross-browser testing (Chrome, Safari, Edge, Firefox)',desc:'QA on all major browsers before launch; fix visual or functional inconsistencies',owner:'frontend',priority:'high',page:'Pre-Launch'},
+  {id:135,cat:'frontend',title:'Ensure footer contains complete navigation + legal links',desc:'Footer must have: Privacy Policy, Terms of Use, Caution Notice, Sitemap, Contact Us',owner:'frontend',priority:'medium',page:'Footer'},
+  {id:136,cat:'frontend',title:'Design and implement custom 404 page',desc:'Branded 404 page with logo, search bar, popular links, back-to-home button',owner:'frontend',priority:'medium',page:'404 Page'},
+  {id:137,cat:'frontend',title:'Optimise hero video encoding and delivery',desc:'Use H.265 or AV1 codec; serve via CDN; add poster image for slow connections',owner:'frontend',priority:'medium',page:'Homepage'},
+
+  // BACKEND
+  {id:138,cat:'backend',title:'Implement server-side 301 redirect map (staging → production)',desc:'Configure all redirect rules in server config (Nginx/Apache) or reverse proxy',owner:'backend',priority:'high',page:'Server / Infra'},
+  {id:139,cat:'backend',title:'Set HTTP security headers (HSTS, X-Frame-Options, CSP)',desc:'HSTS max-age=31536000; X-Frame-Options: SAMEORIGIN; Content-Security-Policy',owner:'backend',priority:'high',page:'Server'},
+  {id:140,cat:'backend',title:'Configure server-side caching (Redis or Varnish)',desc:'Cache dynamic page HTML at server level to reduce database queries and TTFB',owner:'backend',priority:'high',page:'Server'},
+  {id:141,cat:'backend',title:'Implement SSR or pre-rendering for JavaScript-heavy pages',desc:'Ensure Googlebot and AI crawlers can access content without executing JS',owner:'backend',priority:'high',page:'Dynamic Pages'},
+  {id:142,cat:'backend',title:'Set up CDN (Cloudflare or AWS CloudFront)',desc:'Route all global traffic through CDN; critical for international airport audiences',owner:'backend',priority:'high',page:'Infrastructure'},
+  {id:143,cat:'backend',title:'Configure dynamic XML sitemap auto-generation endpoint',desc:'Auto-generate sitemap.xml with lastmod dates from CMS; update on every publish',owner:'backend',priority:'medium',page:'CMS'},
+  {id:144,cat:'backend',title:'Firewall/IP-restrict staging environment',desc:'uatxyz.gmrgroup.in should require Basic Auth or IP whitelist — prevent accidental indexing',owner:'backend',priority:'high',page:'Staging Server'},
+  {id:145,cat:'backend',title:'Configure structured error logging (500/4xx tracked + alerted)',desc:'Any server error impacts crawl budget and rankings; log and alert all 5xx errors',owner:'backend',priority:'medium',page:'Server'},
+  {id:146,cat:'backend',title:'Database query optimisation for fast page loads',desc:'Slow queries increase TTFB; profile and optimise all slow database queries',owner:'backend',priority:'medium',page:'Database'},
+  {id:147,cat:'backend',title:'Configure canonical HTTP header for PDF documents',desc:'PDFs served directly need Link: <url>; rel="canonical" in HTTP response header',owner:'backend',priority:'medium',page:'PDF Documents'},
+  {id:148,cat:'backend',title:'Block sensitive directories in robots.txt',desc:'/admin, /wp-admin, /api/, /staging/, /temp/, /.git/ must be disallowed',owner:'backend',priority:'high',page:'robots.txt'},
+  {id:149,cat:'backend',title:'Add LLMs.txt file with AI crawler permissions',desc:'Define which content AI systems can use; emerging standard alongside robots.txt',owner:'backend',priority:'medium',page:'Website Root'},
+  {id:150,cat:'backend',title:'Set up server monitoring + automated uptime alerts',desc:'99.9%+ uptime SLA; alerts within 60 seconds of downtime',owner:'backend',priority:'high',page:'Server / Infra'},
+
+  // CONTENT
+  {id:151,cat:'content',title:'Full content audit — every page (URL, words, status)',desc:'Document every page: URL, word count, last updated, meta status, thin/thick assessment',owner:'seo',priority:'high',page:'All Pages'},
+  {id:152,cat:'content',title:'Rewrite About Us page (600+ words, full entity details)',desc:'Include: 1978 founding, GM Rao story, HQ, sectors, key stats, awards, USP',owner:'seo',priority:'high',page:'About Page'},
+  {id:153,cat:'content',title:'Expand Vision & Values page content',desc:'Long-form values explanation + examples; link to CSR and careers pages',owner:'seo',priority:'medium',page:'Vision Page'},
+  {id:154,cat:'content',title:'Expand Delhi Airport page (500+ words, unique content)',desc:'Terminal info, capacity stats, expansion projects, GMR role, connectivity, concessions',owner:'seo',priority:'high',page:'Delhi Airport Page'},
+  {id:155,cat:'content',title:'Expand Hyderabad Airport page (500+ words)',desc:'HYD brand refresh story, RGIA capacity, aerocity plans, passenger stats, awards',owner:'seo',priority:'high',page:'Hyderabad Airport Page'},
+  {id:156,cat:'content',title:'Write content for Cebu, Greece, Indonesia airport pages',desc:'International pages are thin; each needs unique 400+ word content with local context',owner:'seo',priority:'high',page:'International Airport Pages'},
+  {id:157,cat:'content',title:'Expand Nagpur and Vizag airport pages',desc:'New acquisitions — write comprehensive pages for GMR Nagpur and Vizag airports',owner:'seo',priority:'high',page:'Nagpur / Vizag Pages'},
+  {id:158,cat:'content',title:'Expand GMR Aerocity pages (Delhi + Hyderabad)',desc:'Aerocity is a key brand asset; expand far beyond current brief description',owner:'seo',priority:'high',page:'Aerocity Pages'},
+  {id:159,cat:'content',title:'Expand Energy section pages (unique content per project)',desc:'Each energy project needs unique content: MW capacity, location, technology, commissioning year',owner:'seo',priority:'medium',page:'Energy Section'},
+  {id:160,cat:'content',title:'Write GMR Foundation page with impact data (500+ words)',desc:'Beneficiary count, 25 locations, education stats, health programs — cite real numbers',owner:'seo',priority:'medium',page:'Foundation Page'},
+  {id:161,cat:'content',title:'Create blog content calendar (min 2 posts/month)',desc:'Topics: airport development, sustainability, infrastructure, CSR, sports, smart meters',owner:'seo',priority:'medium',page:'Blog Strategy'},
+  {id:162,cat:'content',title:'Create Press Kit page for media and journalists',desc:'Downloadable logos, key facts sheet, leadership bios, approved company boilerplate',owner:'seo',priority:'medium',page:'New Page Required'},
+  {id:163,cat:'content',title:'Create Sustainability / ESG page',desc:'Cover: green airports, solar energy, water conservation, CSR programs, ESG commitments',owner:'seo',priority:'medium',page:'New Page Required'},
+  {id:164,cat:'content',title:'Verify and update all statistics (cite sources + year)',desc:'"2nd largest airport operator" — verify with ACI data; "3200 MW" — cite source and year',owner:'seo',priority:'high',page:'All Stat Pages'},
+  {id:165,cat:'content',title:'Add leadership team bios for Group Holdings Board page',desc:'Individual bios for GM Rao, Kiran Kumar Grandhi, GBS Raju and other board members',owner:'seo',priority:'medium',page:'Group Holdings Board'},
+
+  // ═══ ANALYTICS (GA4) ═══
+  {id:166,cat:'analytics',title:'Install GA4 base tag on ALL pages',desc:'Add Google tag (gtag.js) in <head> on every page including subpages, blog, careers, investor',owner:'both',priority:'high',page:'Sitewide'},
+  {id:167,cat:'analytics',title:'Configure GA4 Property — data stream for gmrgroup.in',desc:'Create web data stream; set correct domain; enable Enhanced Measurement',owner:'seo',priority:'high',page:'GA4 Setup'},
+  {id:168,cat:'analytics',title:'Enable Enhanced Measurement in GA4',desc:'Turn on: page views, scrolls, outbound clicks, site search, video engagement, file downloads',owner:'seo',priority:'high',page:'GA4 Setup'},
+  {id:169,cat:'analytics',title:'Set up GA4 Goals / Key Events',desc:'Mark as key events: form_submit (contact form), career_apply, pdf_download, video_play, scroll_90',owner:'both',priority:'high',page:'GA4 Setup'},
+  {id:170,cat:'analytics',title:'Create GA4 Conversion Events',desc:'Tag investor_page_visit, careers_apply_click, contact_form_submit as conversions',owner:'both',priority:'high',page:'GA4 Setup'},
+  {id:171,cat:'analytics',title:'Set up GA4 Audiences (Investors, Careers, Airports)',desc:'Create audiences: visited /investor-relations/, /careers/, /airports/ — for remarketing',owner:'seo',priority:'medium',page:'GA4 Setup'},
+  {id:172,cat:'analytics',title:'Link GA4 to Google Search Console',desc:'Connect GSC property to GA4 to get organic search query data inside Analytics',owner:'seo',priority:'high',page:'GA4 + GSC'},
+  {id:173,cat:'analytics',title:'Link GA4 to Google Ads (if running paid)',desc:'Link GA4 property to Google Ads account for conversion tracking',owner:'both',priority:'medium',page:'GA4 Setup'},
+  {id:174,cat:'analytics',title:'Configure GA4 custom dimensions (page section, author)',desc:'Custom dimensions: Page Section (Airports/Energy/etc), Content Type (Blog/Press), Author',owner:'both',priority:'medium',page:'GA4 Setup'},
+  {id:175,cat:'analytics',title:'Set up GA4 custom channel groups',desc:'Define channel groups: Organic Search, Paid, Direct, Social, Referral, Email',owner:'seo',priority:'medium',page:'GA4 Setup'},
+  {id:176,cat:'analytics',title:'Create GA4 Explorations report — landing pages by section',desc:'Build custom funnel: Homepage → Airport Page → Contact/Careers',owner:'seo',priority:'medium',page:'GA4 Reports'},
+  {id:177,cat:'analytics',title:'Set up GA4 real-time monitoring dashboard',desc:'Real-time report to monitor traffic spike after go-live launch',owner:'seo',priority:'high',page:'GA4 Reports'},
+  {id:178,cat:'analytics',title:'Implement scroll depth tracking (25/50/75/90%)',desc:'Track scroll depth events on long airport, energy, and foundation pages',owner:'both',priority:'medium',page:'GA4 Events'},
+  {id:179,cat:'analytics',title:'Track outbound clicks to subsidiary sites (DIAL, GHIAL, Aero)',desc:'Tag all external links to subsidiary sites as outbound_click events',owner:'both',priority:'medium',page:'GA4 Events'},
+  {id:180,cat:'analytics',title:'Track PDF downloads (Code of Conduct, Annual Reports)',desc:'Fire file_download event on all PDF links across the site',owner:'both',priority:'medium',page:'GA4 Events'},
+  {id:181,cat:'analytics',title:'Track Career page clicks (Apply Now, Current Openings)',desc:'Tag careers.gmrgroup.in link clicks and internal careers CTA buttons',owner:'both',priority:'high',page:'Careers Page'},
+  {id:182,cat:'analytics',title:'Set up monthly SEO performance report from GA4',desc:'Build automated Looker Studio dashboard: organic traffic, top landing pages, conversions',owner:'seo',priority:'medium',page:'Reporting'},
+  {id:183,cat:'analytics',title:'Create Looker Studio (Google Data Studio) SEO dashboard',desc:'Connect GA4 + GSC → Looker Studio; share with stakeholders for monthly reporting',owner:'seo',priority:'medium',page:'Reporting'},
+  {id:184,cat:'analytics',title:'Verify GA4 tag firing on staging before go-live (debug mode)',desc:'Use GA4 DebugView and Tag Assistant to verify all events fire correctly on staging',owner:'both',priority:'high',page:'Pre-Launch QA'},
+  {id:185,cat:'analytics',title:'Exclude internal traffic (office IPs) from GA4',desc:'Add internal IP filters in GA4 admin → Data Streams → Define internal traffic',owner:'seo',priority:'high',page:'GA4 Setup'},
+  {id:186,cat:'analytics',title:'Set up GA4 site search tracking',desc:'Track internal search queries if site has a search function; reveals content gaps',owner:'both',priority:'medium',page:'GA4 Events'},
+  {id:187,cat:'analytics',title:'Set data retention to 14 months in GA4',desc:'Default is 2 months; change to 14 months in GA4 Admin → Data Settings',owner:'seo',priority:'high',page:'GA4 Setup'},
+  {id:188,cat:'analytics',title:'Set up cross-domain tracking (gmrgroup.in + subsidiary domains)',desc:'If users flow to careers.gmrgroup.in or investor sites — configure cross-domain measurement',owner:'both',priority:'medium',page:'GA4 Setup'},
+
+  // ═══ SEARCH CONSOLE ═══
+  {id:189,cat:'console',title:'Add and verify gmrgroup.in in Google Search Console',desc:'Use DNS TXT verification (recommended); add both www and non-www as separate properties',owner:'seo',priority:'high',page:'GSC Setup'},
+  {id:190,cat:'console',title:'Set preferred domain (www vs non-www) in GSC',desc:'Pick canonical version; all traffic must resolve to one — set in GSC settings',owner:'seo',priority:'high',page:'GSC Setup'},
+  {id:191,cat:'console',title:'Submit XML sitemap to Google Search Console',desc:'Go to Sitemaps section → submit https://gmrgroup.in/sitemap.xml',owner:'seo',priority:'high',page:'GSC Setup'},
+  {id:192,cat:'console',title:'Request indexing of homepage + all key pages post-launch',desc:'Use URL Inspection Tool → Request Indexing for: homepage, all airport pages, energy, about',owner:'seo',priority:'high',page:'Post-Launch'},
+  {id:193,cat:'console',title:'Monitor Index Coverage report weekly (first 4 weeks post launch)',desc:'Check for: Crawled not indexed, Discovered not indexed, Excluded pages — fix issues',owner:'seo',priority:'high',page:'GSC Monitoring'},
+  {id:194,cat:'console',title:'Fix all GSC Coverage errors (4xx, soft 404, redirect errors)',desc:'Every error in coverage report must be resolved or acknowledged',owner:'both',priority:'high',page:'GSC Errors'},
+  {id:195,cat:'console',title:'Check and fix Mobile Usability errors in GSC',desc:'GSC flags tap target, font size, viewport issues — fix all mobile usability errors',owner:'frontend',priority:'high',page:'GSC Mobile'},
+  {id:196,cat:'console',title:'Review Core Web Vitals report in GSC (poor URLs)',desc:'GSC CWV report shows real-world poor/needs improvement URLs — fix each one',owner:'frontend',priority:'high',page:'GSC CWV'},
+  {id:197,cat:'console',title:'Review Search Performance — top queries and pages',desc:'Weekly: check which queries are driving impressions; identify quick-win keywords to optimise',owner:'seo',priority:'high',page:'GSC Performance'},
+  {id:198,cat:'console',title:'Monitor Average Position for brand keywords (GMR Group etc)',desc:'Track: "GMR Group", "GMR Airports", "Delhi Airport operator" — must rank #1',owner:'seo',priority:'high',page:'GSC Performance'},
+  {id:199,cat:'console',title:'Identify and fix pages with high impressions but low CTR',desc:'Low CTR = weak title/meta. Filter GSC by CTR < 3% + impressions > 100 and rewrite metas',owner:'seo',priority:'high',page:'GSC Optimisation'},
+  {id:200,cat:'console',title:'Check Links report — top linked pages and anchor text',desc:'Verify internal linking structure; spot orphaned pages with no internal links',owner:'seo',priority:'medium',page:'GSC Links'},
+  {id:201,cat:'console',title:'Review Manual Actions — confirm no penalties on domain',desc:'Check GSC Security & Manual Actions tab — must show "No issues detected"',owner:'seo',priority:'high',page:'GSC Security'},
+  {id:202,cat:'console',title:'Check Security Issues tab in GSC',desc:'Verify no hacked content, malware, or deceptive pages flagged',owner:'both',priority:'high',page:'GSC Security'},
+  {id:203,cat:'console',title:'Submit disavow file via GSC (after backlink audit)',desc:'Upload disavow.txt for toxic/spammy links found in backlink audit',owner:'seo',priority:'medium',page:'GSC Disavow'},
+  {id:204,cat:'console',title:'Monitor crawl stats — crawl rate, response codes',desc:'GSC Settings → Crawl Stats: watch for 5xx spikes, crawl drops, response time issues',owner:'both',priority:'medium',page:'GSC Crawl'},
+  {id:205,cat:'console',title:'Verify rich results eligibility (FAQ, Breadcrumb, Sitelinks)',desc:'Check GSC Enhancements tabs for FAQ, Breadcrumbs, Sitelinks status after schema is live',owner:'seo',priority:'high',page:'GSC Enhancements'},
+  {id:206,cat:'console',title:'Set up GSC email alerts for coverage drops and manual actions',desc:'GSC sends email alerts by default — verify correct email is set up to receive alerts',owner:'seo',priority:'high',page:'GSC Setup'},
+  {id:207,cat:'console',title:'Add Bing Webmaster Tools and submit sitemap',desc:'Verify domain on Bing WMT; submit sitemap; monitor Bing-specific crawl issues',owner:'seo',priority:'medium',page:'Bing WMT'},
+  {id:208,cat:'console',title:'Check URL Parameters in GSC (avoid duplicate indexing)',desc:'If site uses URL parameters for filters/sessions — configure GSC to ignore them',owner:'both',priority:'medium',page:'GSC Settings'},
+  {id:209,cat:'console',title:'Monitor International Targeting if multilingual pages exist',desc:'GSC International Targeting → set country target; verify hreflang annotations',owner:'seo',priority:'medium',page:'GSC International'},
+  {id:210,cat:'console',title:'Review GSC Performance report for each airport page',desc:'Check impressions, clicks, CTR, position for each of the 9 airport pages individually',owner:'seo',priority:'high',page:'GSC Performance'},
+
+  // ═══ PER-PAGE SEO ═══
+  // Homepage
+  {id:211,cat:'pagewise',title:'[Homepage] Keyword: "GMR Group" + "Infrastructure conglomerate India"',desc:'Primary KW on H1, title, meta, first paragraph, alt text of hero image',owner:'seo',priority:'high',page:'Homepage'},
+  {id:212,cat:'pagewise',title:'[Homepage] H1 — single, keyword-rich, above fold',desc:'e.g. "GMR Group — Creating an Institution in Perpetuity" or similar with brand KW',owner:'seo',priority:'high',page:'Homepage'},
+  {id:213,cat:'pagewise',title:'[Homepage] Internal links to all 6 main sections in hero/nav',desc:'Direct links to Airports, Energy, Transportation, Urban Infra, Sports, Foundation visible above fold',owner:'seo',priority:'high',page:'Homepage'},
+  {id:214,cat:'pagewise',title:'[Homepage] Organization + SiteLinksSearchBox schema',desc:'Full JSON-LD Organization schema; SiteLinksSearchBox for brand SERP',owner:'both',priority:'high',page:'Homepage'},
+  {id:215,cat:'pagewise',title:'[Homepage] OG image 1200×630px branded',desc:'Unique OG image for homepage social sharing',owner:'seo',priority:'high',page:'Homepage'},
+  {id:216,cat:'pagewise',title:'[Homepage] Page speed LCP < 2.5s, CLS < 0.1',desc:'Hero section must not cause layout shift; hero image/video preloaded',owner:'frontend',priority:'high',page:'Homepage'},
+  // About
+  {id:217,cat:'pagewise',title:'[About] Title: "About GMR Group | Global Infrastructure Leader"',desc:'Include founding year, sectors in meta description',owner:'seo',priority:'high',page:'About Page'},
+  {id:218,cat:'pagewise',title:'[About] H1 + 600 word minimum unique content',desc:'Entity facts: founded 1978, GM Rao, HQ Delhi, 14000+ employees, airports, energy, transport',owner:'seo',priority:'high',page:'About Page'},
+  {id:219,cat:'pagewise',title:'[About] Organization schema with full fields',desc:'name, foundingDate, founder (Person schema), numberOfEmployees, sameAs social profiles',owner:'both',priority:'high',page:'About Page'},
+  {id:220,cat:'pagewise',title:'[About] Internal links to all sector overview pages',desc:'About page must link to: Airports overview, Energy overview, Foundation, Sports, Careers',owner:'seo',priority:'medium',page:'About Page'},
+  // Vision & Values
+  {id:221,cat:'pagewise',title:'[Vision] Title + Meta + H1 targeting "GMR Group vision values"',desc:'"GMR Group Vision, Values & Beliefs | Infrastructure with Purpose"',owner:'seo',priority:'medium',page:'Vision Page'},
+  {id:222,cat:'pagewise',title:'[Vision] Structured list of values with descriptions',desc:'Each value as H2/H3 with paragraph explanation; helps AI extraction',owner:'seo',priority:'medium',page:'Vision Page'},
+  // Airports Overview
+  {id:223,cat:'pagewise',title:'[Airports Overview] Title: "GMR Airports | 2nd Largest Private Airport Operator"',desc:'Include: India, world, number of airports in title/meta',owner:'seo',priority:'high',page:'Airports Overview'},
+  {id:224,cat:'pagewise',title:'[Airports Overview] H1 + intro para + 400+ words',desc:'Overview copy: airports operated, countries, capacity, growth story',owner:'seo',priority:'high',page:'Airports Overview'},
+  {id:225,cat:'pagewise',title:'[Airports Overview] Internal links to all 9 airport sub-pages',desc:'Card/grid linking to each airport with anchor text = airport name',owner:'seo',priority:'high',page:'Airports Overview'},
+  {id:226,cat:'pagewise',title:'[Airports Overview] Airport list schema / ItemList schema',desc:'ItemList JSON-LD listing all airports with URL, name, description',owner:'both',priority:'medium',page:'Airports Overview'},
+  // Delhi Airport
+  {id:227,cat:'pagewise',title:'[Delhi Airport] Title: "Delhi International Airport | GMR Airports"',desc:'IATA: DEL; Indira Gandhi International Airport; India\'s busiest airport',owner:'seo',priority:'high',page:'Delhi Airport Page'},
+  {id:228,cat:'pagewise',title:'[Delhi Airport] H1 + 500 word unique content',desc:'Terminal 1/2/3, annual capacity, GMR concession, expansion T1, aerocity, awards',owner:'seo',priority:'high',page:'Delhi Airport Page'},
+  {id:229,cat:'pagewise',title:'[Delhi Airport] Airport schema (LocalBusiness / Airport type)',desc:'iataCode: DEL, name, address, geo coordinates, openingHours, url',owner:'both',priority:'high',page:'Delhi Airport Page'},
+  {id:230,cat:'pagewise',title:'[Delhi Airport] Link to GMR Aerocity Delhi page',desc:'Strong internal link from Delhi Airport page to Aerocity Delhi page',owner:'seo',priority:'medium',page:'Delhi Airport Page'},
+  // Hyderabad Airport
+  {id:231,cat:'pagewise',title:'[Hyderabad Airport] Title: "Hyderabad International Airport | GMR RGIA"',desc:'IATA: HYD; Rajiv Gandhi International; best airport award',owner:'seo',priority:'high',page:'Hyderabad Airport Page'},
+  {id:232,cat:'pagewise',title:'[Hyderabad Airport] H1 + 500 word unique content',desc:'RGIA capacity, ACI awards, aerocity Hyderabad, GMR GHIAL stake, expansion',owner:'seo',priority:'high',page:'Hyderabad Airport Page'},
+  {id:233,cat:'pagewise',title:'[Hyderabad Airport] Airport schema JSON-LD',desc:'iataCode: HYD, address, geo, GMR entity reference',owner:'both',priority:'high',page:'Hyderabad Airport Page'},
+  // Goa Airport
+  {id:234,cat:'pagewise',title:'[Goa Airport] Title + Meta + H1 (Mopa, North Goa)',desc:'"GMR Goa International Airport | Mopa Airport North Goa"',owner:'seo',priority:'high',page:'Goa Airport Page'},
+  {id:235,cat:'pagewise',title:'[Goa Airport] 400+ word content with opening story, capacity, tourism',desc:'New greenfield airport; IATA: GOX; tourism impact; opening 2023',owner:'seo',priority:'high',page:'Goa Airport Page'},
+  {id:236,cat:'pagewise',title:'[Goa Airport] Airport schema JSON-LD',desc:'iataCode: GOX, address, geo, openingDate, url',owner:'both',priority:'high',page:'Goa Airport Page'},
+  // Nagpur Airport
+  {id:237,cat:'pagewise',title:'[Nagpur Airport] Title + Meta + H1',desc:'"GMR Nagpur International Airport | Dr Babasaheb Ambedkar"',owner:'seo',priority:'high',page:'Nagpur Airport Page'},
+  {id:238,cat:'pagewise',title:'[Nagpur Airport] 400+ word content',desc:'IATA: NAG; cargo hub potential; central India location; GMR concession details',owner:'seo',priority:'high',page:'Nagpur Airport Page'},
+  // Vizag Airport
+  {id:239,cat:'pagewise',title:'[Vizag Airport] Title + Meta + H1',desc:'"GMR Visakhapatnam International Airport | Andhra Pradesh"',owner:'seo',priority:'high',page:'Vizag Airport Page'},
+  {id:240,cat:'pagewise',title:'[Vizag Airport] 400+ word content',desc:'IATA: VTZ; strategic port city; GMR concession year, capacity, expansion plans',owner:'seo',priority:'high',page:'Vizag Airport Page'},
+  // Bidar Airport
+  {id:241,cat:'pagewise',title:'[Bidar Airport] Title + Meta + H1 + 300+ words',desc:'Smaller regional airport; IATA: IXX; Karnataka; GMR management',owner:'seo',priority:'medium',page:'Bidar Airport Page'},
+  // International Airports
+  {id:242,cat:'pagewise',title:'[Cebu Airport] Title + Meta + H1 + 400 words',desc:'"Mactan Cebu International Airport | GMR Philippines" — IATA: CEB',owner:'seo',priority:'high',page:'Cebu Airport Page'},
+  {id:243,cat:'pagewise',title:'[Cebu Airport] Airport schema + hreflang for Philippines',desc:'Schema with iataCode: CEB; consider hreflang en/fil',owner:'both',priority:'medium',page:'Cebu Airport Page'},
+  {id:244,cat:'pagewise',title:'[Greece Airport] Title + Meta + H1 + 400 words',desc:'"Crete International Airport | GMR Greece" — Heraklion Kazantzakis',owner:'seo',priority:'high',page:'Greece Airport Page'},
+  {id:245,cat:'pagewise',title:'[Greece Airport] Airport schema + hreflang for Greece',desc:'Schema with iataCode: HER; hreflang en/el (Greek)',owner:'both',priority:'medium',page:'Greece Airport Page'},
+  {id:246,cat:'pagewise',title:'[Indonesia Airport] Title + Meta + H1 + 400 words',desc:'"Kualanamu International Airport | GMR Indonesia" — IATA: KNO',owner:'seo',priority:'high',page:'Indonesia Airport Page'},
+  {id:247,cat:'pagewise',title:'[Indonesia Airport] Airport schema + hreflang for Indonesia',desc:'Schema with iataCode: KNO; hreflang en/id (Bahasa)',owner:'both',priority:'medium',page:'Indonesia Airport Page'},
+  // Aerocity
+  {id:248,cat:'pagewise',title:'[Aerocity Delhi] Title: "GMR Aerocity Delhi | Airport City New Delhi"',desc:'Target: aerocity Delhi hotels, office, retail near airport',owner:'seo',priority:'high',page:'Aerocity Delhi'},
+  {id:249,cat:'pagewise',title:'[Aerocity Delhi] 500+ word content covering zones, hotels, offices',desc:'Hospitality Zone, Worldmark towers, Hotel Park Plaza, JW Marriott; GMR role',owner:'seo',priority:'high',page:'Aerocity Delhi'},
+  {id:250,cat:'pagewise',title:'[Aerocity Hyderabad] Title + Meta + 400 word content',desc:'Aerospace SEZ, IT park, Shamshabad; GMR-developed; investment opportunities',owner:'seo',priority:'high',page:'Aerocity Hyderabad'},
+  // Energy
+  {id:251,cat:'pagewise',title:'[Energy Overview] Title + Meta + H1 + 400 words',desc:'"GMR Energy | Power Generation India | Solar, Wind, Hydro, Thermal"',owner:'seo',priority:'high',page:'Energy Overview'},
+  {id:252,cat:'pagewise',title:'[Energy Overview] Internal links to all energy sub-pages',desc:'Link to all energy projects: Warora, Kamalanga, Solar Gujarat, Solar Goa, Hydro, Smart Meters',owner:'seo',priority:'high',page:'Energy Overview'},
+  {id:253,cat:'pagewise',title:'[Warora Energy] Title + Meta + H1 + 300 words',desc:'"GMR Warora Energy | 600MW Coal Power Plant Maharashtra"',owner:'seo',priority:'medium',page:'Warora Energy Page'},
+  {id:254,cat:'pagewise',title:'[Kamalanga Energy] Title + Meta + H1 + 300 words',desc:'"GMR Kamalanga Energy | 1050MW Power Plant Odisha"',owner:'seo',priority:'medium',page:'Kamalanga Page'},
+  {id:255,cat:'pagewise',title:'[Solar Pages] Title + Meta + content for all 4 solar projects',desc:'Gujarat, Goa, Rajam, Delhi solar pages — unique content per page with MW capacity',owner:'seo',priority:'medium',page:'Solar Energy Pages'},
+  {id:256,cat:'pagewise',title:'[Smart Meters] Title + Meta + content for Kashi/Triveni/Agra pages',desc:'GMR Smart Meters — 3 pages; explain technology, geography, scale',owner:'seo',priority:'medium',page:'Smart Meter Pages'},
+  // Transportation
+  {id:257,cat:'pagewise',title:'[Transportation] Title + Meta + H1 + content for Highways page',desc:'"GMR Highways | National Highway Projects India" — list projects, states, km',owner:'seo',priority:'medium',page:'Transportation Page'},
+  {id:258,cat:'pagewise',title:'[DFCC] Title + Meta + H1 + content',desc:'"GMR DFCC | Dedicated Freight Corridor Construction"',owner:'seo',priority:'medium',page:'DFCC Page'},
+  // Urban Infrastructure
+  {id:259,cat:'pagewise',title:'[Urban Infra Overview] Title + Meta + H1 + 300 words',desc:'"GMR Urban Infrastructure | Special Investment Region India"',owner:'seo',priority:'medium',page:'Urban Infrastructure'},
+  {id:260,cat:'pagewise',title:'[Krishnagiri SIR] Title + Meta + 400 word content',desc:'GMR Krishnagiri Special Investment Region Tamil Nadu — industrial zones, investment',owner:'seo',priority:'medium',page:'Krishnagiri SIR Page'},
+  // Sports
+  {id:261,cat:'pagewise',title:'[Sports Overview] Title + Meta + H1 + 300 words',desc:'"GMR Sports | Delhi Capitals IPL | UP Yoddhas | Dubai Capitals"',owner:'seo',priority:'medium',page:'Sports Overview'},
+  {id:262,cat:'pagewise',title:'[Sports] Internal links to all team pages and GMR Sports site',desc:'Sports page must link to all franchise pages and gmrsports.in',owner:'seo',priority:'medium',page:'Sports Overview'},
+  // Foundation
+  {id:263,cat:'pagewise',title:'[Foundation] Title: "GMR Varalakshmi Foundation | CSR India"',desc:'"GMR CSR | Education, Health & Community in India" — 500+ word content',owner:'seo',priority:'medium',page:'Foundation Page'},
+  {id:264,cat:'pagewise',title:'[Foundation] Impact stats: beneficiaries, locations, programs',desc:'Hard numbers: 40+ villages, 150,000+ beneficiaries, 25 locations — cite and source',owner:'seo',priority:'medium',page:'Foundation Page'},
+  {id:265,cat:'pagewise',title:'[Foundation] NGO/Organization schema JSON-LD',desc:'Organization schema with areaServed, foundingDate, mission statement',owner:'both',priority:'medium',page:'Foundation Page'},
+  // Investor Relations
+  {id:266,cat:'pagewise',title:'[Investor Relations] Title + Meta + H1',desc:'"GMR Group Investor Relations | GAL | GPUIL | Stock Exchange"',owner:'seo',priority:'high',page:'Investor Relations'},
+  {id:267,cat:'pagewise',title:'[GAL Page] Title + Meta + unique content',desc:'GMR Airports Limited — stock info, entity description, link to GAL investor portal',owner:'seo',priority:'high',page:'GAL Page'},
+  {id:268,cat:'pagewise',title:'[GPUIL Page] Title + Meta + unique content',desc:'GMR Power Urban Infra Limited — stock info, entity description, link to GPUIL investor portal',owner:'seo',priority:'high',page:'GPUIL Page'},
+  // Careers
+  {id:269,cat:'pagewise',title:'[Careers] Title: "Careers at GMR Group | Infrastructure Jobs India"',desc:'Target: "GMR careers", "infrastructure jobs India", "airport jobs Delhi"',owner:'seo',priority:'high',page:'Careers Page'},
+  {id:270,cat:'pagewise',title:'[Careers] JobPosting schema on job listings',desc:'Each job opening should have JobPosting schema: title, description, location, salary range',owner:'both',priority:'high',page:'Careers Page'},
+  {id:271,cat:'pagewise',title:'[Careers] FAQ section + FAQPage schema',desc:'"What is it like to work at GMR?", "How to apply?" — FAQs with schema',owner:'seo',priority:'medium',page:'Careers Page'},
+  // Media / Blog
+  {id:272,cat:'pagewise',title:'[Media] Title + Meta for Media overview page',desc:'"GMR Group News | Press Releases | Media Centre"',owner:'seo',priority:'medium',page:'Media Page'},
+  {id:273,cat:'pagewise',title:'[Blog] Article schema on every blog post',desc:'Every blog post needs: Article schema, author bio, datePublished, dateModified, OG image',owner:'both',priority:'high',page:'Blog Posts'},
+  {id:274,cat:'pagewise',title:'[Blog] Category pages with Title + Meta + H1',desc:'If blog has categories (Airports, Energy, CSR etc) — each category page needs SEO treatment',owner:'seo',priority:'medium',page:'Blog Category Pages'},
+  // Contact
+  {id:275,cat:'pagewise',title:'[Contact] Title + Meta + H1 + LocalBusiness schema',desc:'"Contact GMR Group | Head Office New Delhi" — add full address, phone, map embed',owner:'seo',priority:'medium',page:'Contact Page'},
+  {id:276,cat:'pagewise',title:'[Contact] NAP (Name, Address, Phone) — consistent with GMB',desc:'Exact same Name/Address/Phone as Google Business Profile',owner:'seo',priority:'high',page:'Contact Page'},
+  // Legal Pages
+  {id:277,cat:'pagewise',title:'[Privacy Policy] Add noindex meta if thin/boilerplate',desc:'Privacy Policy and Terms of Use — add noindex if they are thin legal boilerplate pages',owner:'both',priority:'medium',page:'Privacy / Terms'},
+  {id:278,cat:'pagewise',title:'[Caution Notice] Add noindex — no SEO value page',desc:'Caution/Fake Job notice pages should be noindex,follow',owner:'both',priority:'medium',page:'Caution Notice'},
+  // Sitemap page
+  {id:279,cat:'pagewise',title:'[Sitemap HTML] Create human-readable HTML sitemap page',desc:'HTML sitemap listing all key pages in logical structure — helps crawlers and users',owner:'both',priority:'medium',page:'HTML Sitemap'},
+  {id:280,cat:'pagewise',title:'[404 Page] No-index 404 and add helpful navigation',desc:'404 must be noindex; include site header, popular links, search bar, back button',owner:'both',priority:'medium',page:'404 Page'},
+  // Our Presence / Partners / Journey
+  {id:281,cat:'pagewise',title:'[Our Presence] Title + Meta + interactive map SEO treatment',desc:'"GMR Group Global Presence | Airports, Energy, Infrastructure Worldwide"',owner:'seo',priority:'medium',page:'Our Presence Page'},
+  {id:282,cat:'pagewise',title:'[Our Journey] Title + Meta + Event/Timeline schema',desc:'"GMR Group History & Milestones | 1978–Present" — Event schema on key milestones',owner:'both',priority:'medium',page:'Our Journey Page'},
+  {id:283,cat:'pagewise',title:'[PFBI] Title + Meta + content for Parampara Family Business Institute',desc:'Niche page; target "family business institute India" keywords',owner:'seo',priority:'low',page:'PFBI Page'},
+  // Other Businesses
+  {id:284,cat:'pagewise',title:'[GMR Logistics] Title + Meta + 300 word content',desc:'"GMR Logistics | Airport Cargo & Supply Chain Solutions India"',owner:'seo',priority:'medium',page:'GMR Logistics Page'},
+  {id:285,cat:'pagewise',title:'[RAXA Security] Title + Meta + 300 word content',desc:'"RAXA Techno Security Solutions | Airport Security India"',owner:'seo',priority:'medium',page:'RAXA Security Page'},
+];
+
+// ── STATE ──
+let checked = {}, notes = {}, customTasks = [], overrides = {}, hidden = [];
+let activeTab = 'all', activeFilter = 'all', activeSidebar = null, editingId = null;
+let TASKS_BASE = null;
+
+const CATS = {
+  all:'All', onpage:'On-Page SEO', technical:'Technical SEO', offpage:'Off-Page SEO',
+  aio:'AIO', geo:'GEO', analytics:'Analytics (GA4)', console:'Search Console',
+  pagewise:'Per-Page SEO', frontend:'Frontend Dev', backend:'Backend Dev',
+  content:'Content', custom:'⭐ Custom'
+};
+
+// ── localStorage ──
+function lsGet(k){ try{ return JSON.parse(localStorage.getItem(k)||'null'); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+
+function saveAll(){
+  lsSet('gmr_checked', checked);
+  lsSet('gmr_notes', notes);
+  lsSet('gmr_custom', customTasks);
+  lsSet('gmr_overrides', overrides);
+  lsSet('gmr_hidden', hidden);
+  showToast();
+}
+function showToast(){
+  const el = document.getElementById('saved-toast');
+  if(!el) return;
+  el.style.opacity = '1';
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.style.opacity = '0', 1800);
+}
+
+// ── Apply overrides + hidden ──
+function applyOverrides(){
+  if(!TASKS_BASE) TASKS_BASE = TASKS.map(t => ({...t}));
+  else { TASKS.length = 0; TASKS_BASE.forEach(t => TASKS.push({...t})); }
+  TASKS.forEach(t => { if(overrides[t.id]) Object.assign(t, overrides[t.id]); });
+  for(let i = TASKS.length-1; i >= 0; i--){
+    if(hidden.includes(String(TASKS[i].id))) TASKS.splice(i,1);
+  }
+}
+
+function getAllTasks(){ return [...TASKS, ...customTasks]; }
+
+// ── Badges ──
+function oBadge(o){
+  const m = {seo:['bseo','SEO Person'],dev:['bdev','Developer'],frontend:['bfe','Frontend Dev'],backend:['bbe','Backend Dev'],both:['bboth','SEO + Dev']};
+  const [cls,lbl] = m[o]||['bseo',o];
+  return `<span class="badge ${cls}">${lbl}</span>`;
+}
+function cBadge(c){
+  const L = {onpage:'On-Page SEO',technical:'Technical SEO',offpage:'Off-Page SEO',aio:'AIO',geo:'GEO',frontend:'Frontend Dev',backend:'Backend Dev',content:'Content',analytics:'Analytics GA4',console:'Search Console',pagewise:'Per-Page SEO',custom:'⭐ Custom'};
+  return `<span class="badge bcat-${c}">${L[c]||c}</span>`;
+}
+function pBadge(p){
+  const m = {high:['bhigh','High'],medium:['bmed','Medium'],low:['blow','Low']};
+  const [cls,lbl] = m[p]||['blow',p];
+  return `<span class="badge ${cls}">${lbl}</span>`;
+}
+
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escQ(s){ return String(s||'').replace(/"/g,'&quot;').replace(/\n/g,' '); }
+
+// ── Filter ──
+function getFiltered(){
+  const all = getAllTasks();
+  let t = activeTab==='all' ? all : all.filter(x => x.cat===activeTab);
+  if(activeSidebar) t = t.filter(x => x.page===activeSidebar);
+  const q = (document.getElementById('srch')||{value:''}).value.toLowerCase();
+  if(q) t = t.filter(x => x.title.toLowerCase().includes(q)||(x.desc||'').toLowerCase().includes(q)||x.page.toLowerCase().includes(q));
+  if(activeFilter==='pending') t = t.filter(x => !checked[x.id]);
+  if(activeFilter==='done')    t = t.filter(x =>  !!checked[x.id]);
+  if(activeFilter==='high')    t = t.filter(x => x.priority==='high');
+  if(activeFilter==='medium')  t = t.filter(x => x.priority==='medium');
+  if(activeFilter==='low')     t = t.filter(x => x.priority==='low');
+  return t;
+}
+
+// ── Render ──
+function render(){
+  const tasks = getFiltered();
+  const tbody = document.getElementById('tbody');
+  const empty = document.getElementById('empty');
+  if(!tbody) return;
+  if(!tasks.length){
+    tbody.innerHTML = '';
+    if(empty) empty.style.display = 'block';
+    updateStats(); updateProgress(); updateSidebar();
+    return;
+  }
+  if(empty) empty.style.display = 'none';
+  tbody.innerHTML = tasks.map(t => {
+    const id = String(t.id);
+    return `<tr class="trow cat-${t.cat}${checked[id]?' done':''}" id="r${id}" data-id="${id}">
+      <td><input type="checkbox" class="chk row-chk"${checked[id]?' checked':''} data-id="${id}"></td>
+      <td style="color:var(--muted);font-size:11px">${t.id}</td>
+      <td><div class="tname">${esc(t.title)}</div>${t.desc?`<div class="tdesc">${esc(t.desc)}</div>`:''}</td>
+      <td>${cBadge(t.cat)}</td>
+      <td>${oBadge(t.owner)}</td>
+      <td>${pBadge(t.priority)}</td>
+      <td><span class="ppill">${esc(t.page)}</span></td>
+      <td><input class="note-in row-note" placeholder="Add note…" value="${escQ(notes[id]||'')}" data-id="${id}"></td>
+      <td style="white-space:nowrap;min-width:64px;">
+        <button class="act-btn row-edit" data-id="${id}" title="Edit">✏️</button>
+        <button class="act-btn row-del" data-id="${id}" title="Delete">🗑</button>
+      </td>
+    </tr>`;
+  }).join('');
+  updateStats(); updateProgress(); updateSidebar();
+}
+
+function toggle(id){
+  checked[id] = !checked[id];
+  const r = document.getElementById('r'+id);
+  if(r) r.classList.toggle('done', !!checked[id]);
+  lsSet('gmr_checked', checked); showToast();
+  updateStats(); updateProgress(); updateSidebar();
+}
+function setN(id, v){ notes[id]=v; lsSet('gmr_notes',notes); showToast(); }
+
+function setSB(p){
+  activeSidebar = p;
+  // update active state
+  document.querySelectorAll('#sb .sitem').forEach(el => el.classList.remove('active'));
+  render();
+}
+
+function switchTab(tab, btn){
+  activeTab = tab;
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeSidebar = null;
+  render();
+}
+function setF(f, btn){
+  activeFilter = f;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function updateStats(){
+  const all = getAllTasks();
+  const total = all.length, done = all.filter(t=>checked[t.id]).length;
+  const s = (id,v) => { const el=document.getElementById(id); if(el) el.textContent=v; };
+  s('tc',total); s('dc',done); s('pc',total-done); s('pp',total?Math.round(done/total*100)+'%':'0%');
+  Object.keys(CATS).forEach(c => {
+    const el = document.getElementById('tb-'+c);
+    if(el) el.textContent = (c==='all'?all:all.filter(x=>x.cat===c)).length;
+  });
+}
+
+function updateProgress(){
+  const all = getAllTasks();
+  const tasks = activeTab==='all'?all:all.filter(t=>t.cat===activeTab);
+  const done = tasks.filter(t=>checked[t.id]).length;
+  const pct = tasks.length?Math.round(done/tasks.length*100):0;
+  const s = (id,v) => { const el=document.getElementById(id); if(el) el.textContent=v; };
+  s('pr-pct',pct+'%');
+  s('pr-info',`${done} of ${tasks.length} tasks completed — ${CATS[activeTab]||activeTab}`);
+  const pf = document.getElementById('pr-fill'); if(pf) pf.style.width=pct+'%';
+}
+
+function updateSidebar(){
+  const all = getAllTasks();
+  const sb = document.getElementById('sb'); if(!sb) return;
+  const pages = [...new Set(all.map(t=>t.page))].sort();
+  let html = `<div class="slabel">Filter by Page / Scope</div>
+    <div class="sitem${!activeSidebar?' active':''}" data-page="">
+      <span>All Scopes</span><span class="scount">${all.length}</span>
+    </div>
+    <div class="slabel" style="margin-top:8px">Pages &amp; Scopes</div>`;
+  pages.forEach(p => {
+    const pt = all.filter(x=>x.page===p);
+    const pd = pt.filter(x=>checked[x.id]).length;
+    const pct = pt.length?Math.round(pd/pt.length*100):0;
+    html += `<div class="sitem${activeSidebar===p?' active':''}" data-page="${escQ(p)}">${esc(p)}<span class="scount">${pd}/${pt.length}</span></div>
+    <div class="sprog"><div class="sprogf" style="width:${pct}%"></div></div>`;
+  });
+  sb.innerHTML = html;
+}
+
+function exportCSV(){
+  const all = getAllTasks();
+  const h = ['ID','Category','Task','Description','Owner','Priority','Page/Scope','Status','Notes'];
+  const rows = all.map(t=>[
+    t.id, t.cat,
+    `"${String(t.title).replace(/"/g,'""')}"`,
+    `"${String(t.desc||'').replace(/"/g,'""')}"`,
+    t.owner, t.priority,
+    `"${String(t.page).replace(/"/g,'""')}"`,
+    checked[t.id]?'Done':'Pending',
+    `"${String(notes[t.id]||'').replace(/"/g,'""')}"`
+  ]);
+  const csv = [h,...rows].map(r=>r.join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download = 'GMR_SEO_Checklist.csv';
+  a.click();
+}
+
+// ── Modal helpers ──
+function modalShow(){ document.getElementById('modal-overlay').style.display='block'; document.getElementById('modal').style.display='block'; }
+function modalHide(){ document.getElementById('modal-overlay').style.display='none'; document.getElementById('modal').style.display='none'; }
+
+function openModal(){
+  editingId = null;
+  document.getElementById('modal-title').textContent = '＋ Add New Task';
+  document.getElementById('modal-save-btn').textContent = 'Save Task';
+  ['m-title','m-desc','m-page','m-note'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('m-cat').value = 'custom';
+  document.getElementById('m-owner').value = 'seo';
+  document.getElementById('m-prio').value = 'high';
+  document.getElementById('modal-err').style.display = 'none';
+  modalShow();
+  setTimeout(() => document.getElementById('m-title').focus(), 80);
+}
+
+function openEditModal(id){
+  const task = getAllTasks().find(t => String(t.id)===String(id));
+  if(!task) return;
+  editingId = id;
+  document.getElementById('modal-title').textContent = '✏️ Edit Task';
+  document.getElementById('modal-save-btn').textContent = 'Update Task';
+  document.getElementById('m-title').value = task.title||'';
+  document.getElementById('m-desc').value = task.desc||'';
+  document.getElementById('m-page').value = task.page||'';
+  document.getElementById('m-cat').value = task.cat||'custom';
+  document.getElementById('m-owner').value = task.owner||'seo';
+  document.getElementById('m-prio').value = task.priority||'medium';
+  document.getElementById('m-note').value = notes[id]||'';
+  document.getElementById('modal-err').style.display = 'none';
+  modalShow();
+  setTimeout(() => document.getElementById('m-title').focus(), 80);
+}
+
+function closeModal(e){
+  if(e && e.target !== document.getElementById('modal-overlay')) return;
+  modalHide();
+}
+
+function saveTask(){
+  const title = document.getElementById('m-title').value.trim();
+  const page  = document.getElementById('m-page').value.trim();
+  const errEl = document.getElementById('modal-err');
+  if(!title||!page){ errEl.textContent='Task Title and Page / Scope are required.'; errEl.style.display='block'; return; }
+  errEl.style.display = 'none';
+  const cat   = document.getElementById('m-cat').value;
+  const owner = document.getElementById('m-owner').value;
+  const prio  = document.getElementById('m-prio').value;
+  const desc  = document.getElementById('m-desc').value.trim();
+  const note  = document.getElementById('m-note').value.trim();
+  if(editingId !== null){
+    const ci = customTasks.findIndex(t => String(t.id)===String(editingId));
+    if(ci > -1){
+      customTasks[ci] = {...customTasks[ci], title, desc, page, cat, owner, priority:prio};
+    } else {
+      overrides[editingId] = {title, desc, page, cat, owner, priority:prio};
+    }
+    if(note) notes[editingId] = note;
+  } else {
+    const newId = 'c'+Date.now();
+    customTasks.push({id:newId, cat, title, desc, owner, priority:prio, page, custom:true});
+    if(note) notes[newId] = note;
+  }
+  saveAll();
+  applyOverrides();
+  modalHide();
+  render();
+}
+
+function deleteTask(id){
+  const isCustom = customTasks.some(t => String(t.id)===String(id));
+  const msg = isCustom ? 'Delete this custom task permanently?' : 'Hide this task from your checklist?';
+  if(!confirm(msg)) return;
+  if(isCustom){
+    customTasks = customTasks.filter(t => String(t.id)!==String(id));
+    delete checked[id]; delete notes[id];
+  } else {
+    hidden.push(String(id));
+    applyOverrides();
+  }
+  saveAll(); render();
+}
+
+// ── Wire up modal buttons ──
+document.getElementById('modal-close-btn').addEventListener('click', modalHide);
+document.getElementById('modal-cancel-btn').addEventListener('click', modalHide);
+document.getElementById('modal-save-btn').addEventListener('click', saveTask);
+document.addEventListener('keydown', e => { if(e.key==='Escape') modalHide(); });
+
+// ── Event delegation on tbody — catches ALL row interactions ──
+document.getElementById('tbody').addEventListener('click', function(e){
+  // Edit button
+  const editBtn = e.target.closest('.row-edit');
+  if(editBtn){ openEditModal(editBtn.dataset.id); return; }
+  // Delete button
+  const delBtn = e.target.closest('.row-del');
+  if(delBtn){ deleteTask(delBtn.dataset.id); return; }
+  // Checkbox
+  const chk = e.target.closest('.row-chk');
+  if(chk){ toggle(chk.dataset.id); return; }
+});
+
+// Note input — use change event via delegation
+document.getElementById('tbody').addEventListener('change', function(e){
+  const noteIn = e.target.closest('.row-note');
+  if(noteIn) setN(noteIn.dataset.id, noteIn.value);
+});
+
+// Sidebar click delegation
+document.getElementById('sb').addEventListener('click', function(e){
+  const item = e.target.closest('.sitem');
+  if(!item) return;
+  activeSidebar = item.dataset.page === '' ? null : item.dataset.page;
+  render();
+});
+
+// ── INIT ──
+checked     = lsGet('gmr_checked')   || {};
+notes       = lsGet('gmr_notes')     || {};
+customTasks = lsGet('gmr_custom')    || [];
+overrides   = lsGet('gmr_overrides') || {};
+hidden      = (lsGet('gmr_hidden')   || []).map(String);
+applyOverrides();
+render();
+
+// ---- Added persistence + delete helpers ----
+function saveTasks(){
+  try{
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }catch(e){}
+}
+
+function deleteTask(id){
+  tasks = tasks.filter(t => t.id !== id);
+  saveTasks();
+  if(typeof render === 'function') render();
+}
+
+function toggleTask(id){
+  const t = tasks.find(x => x.id === id);
+  if(t){ t.done = !t.done; }
+  saveTasks();
+  if(typeof render === 'function') render();
+}
+
+// ensure first render uses tasks variable
+if(typeof render === 'function'){ render(); }
+
+</script>
+</body>
+</html>
