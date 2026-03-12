@@ -713,7 +713,7 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [
   {id:285,cat:'pagewise',title:'[RAXA Security] Title + Meta + 300 word content',desc:'"RAXA Techno Security Solutions | Airport Security India"',owner:'seo',priority:'medium',page:'RAXA Security Page'},
 ];
 const TASKS_BASE = TASKS;
-
+  
 document.addEventListener("DOMContentLoaded", function () {
   if (typeof render === "function") {
     render();
@@ -722,7 +722,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // ── STATE ──
 let checked = {}, notes = {}, customTasks = [], overrides = {}, hidden = [];
 let activeTab = 'all', activeFilter = 'all', activeSidebar = null, editingId = null;
-let TASKS_BASE = null;
 
 const CATS = {
   all:'All', onpage:'On-Page SEO', technical:'Technical SEO', offpage:'Off-Page SEO',
