@@ -1,521 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GMR Group — Full SEO / AIO / GEO Checklist</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>SEO Task Manager</title>
+
 <style>
-  :root {
-    --bg: #0a0c10;
-    --surface: #12151c;
-    --surface2: #1a1e28;
-    --border: #252a38;
-    --accent: #e8a020;
-    --accent3: #10b981;
-    --warn: #f59e0b;
-    --text: #e2e8f0;
-    --muted: #64748b;
-    --c-onpage:    #3b82f6;
-    --c-technical: #a855f7;
-    --c-offpage:   #f97316;
-    --c-aio:       #06b6d4;
-    --c-geo:       #10b981;
-    --c-frontend:  #f59e0b;
-    --c-backend:   #ec4899;
-    --c-content:   #84cc16;
-    --c-analytics: #e879f9;
-    --c-console:   #38bdf8;
-    --c-pagewise:  #fb7185;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-  .header {
-    background: #0d1117;
-    border-bottom: 1px solid var(--border);
-    padding: 0 28px;
-    position: sticky; top: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    flex-wrap: wrap; min-height: 60px;
-  }
-  .hbrand { display: flex; align-items: center; gap: 10px; }
-  .logo { width: 34px; height: 34px; background: var(--accent); display: flex; align-items: center; justify-content: center; border-radius: 6px; font-family:'Syne',sans-serif; font-weight:800; font-size:13px; color:#000; }
-  .htitle { font-family:'Syne',sans-serif; font-weight:700; font-size:14px; }
-  .hsub { font-size:11px; color:var(--muted); }
-  .hstats { display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
-  .pill { background:var(--surface2); border:1px solid var(--border); border-radius:20px; padding:3px 12px; font-size:12px; display:flex; align-items:center; gap:5px; }
-  .pill b { font-family:'Syne',sans-serif; font-weight:800; }
-  .btn-exp { background:var(--accent); color:#000; border:none; border-radius:7px; padding:7px 16px; font-size:12px; font-weight:700; cursor:pointer; font-family:'Syne',sans-serif; }
-  .btn-exp:hover { opacity:.85; }
+body{
+font-family:Arial;
+background:#111;
+color:white;
+padding:30px;
+}
 
-  .tabs { background:var(--surface); border-bottom:1px solid var(--border); padding:0 20px; display:flex; overflow-x:auto; scrollbar-width:none; }
-  .tabs::-webkit-scrollbar { display:none; }
-  .tab { background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:12px; font-weight:500; padding:13px 16px; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
-  .tab:hover { color:var(--text); }
-  .tab.active { color:var(--accent); border-bottom-color:var(--accent); }
-  .tbadge { background:var(--surface2); border-radius:10px; padding:1px 7px; font-size:11px; margin-left:4px; }
+table{
+width:100%;
+border-collapse:collapse;
+}
 
-  .layout { display:flex; height:calc(100vh - 106px); }
-  .sidebar { width:240px; flex-shrink:0; background:var(--surface); border-right:1px solid var(--border); overflow-y:auto; padding:12px 0; }
-  .slabel { font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; padding:8px 14px 4px; }
-  .sitem { display:flex; align-items:center; justify-content:space-between; padding:7px 14px; cursor:pointer; transition:background .15s; font-size:12px; gap:6px; }
-  .sitem:hover { background:var(--surface2); }
-  .sitem.active { background:rgba(232,160,32,.1); border-right:2px solid var(--accent); color:var(--accent); }
-  .scount { font-size:11px; color:var(--muted); background:var(--surface2); border-radius:8px; padding:1px 6px; }
-  .sprog { height:3px; background:var(--border); border-radius:2px; margin:0 14px 4px; }
-  .sprogf { height:100%; background:var(--accent3); border-radius:2px; }
+td,th{
+border:1px solid #444;
+padding:10px;
+}
 
-  .content { flex:1; overflow-y:auto; padding:20px; }
-  .fbar { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
-  .fsearch { flex:1; min-width:180px; background:var(--surface); border:1px solid var(--border); border-radius:7px; padding:7px 12px; color:var(--text); font-size:12px; font-family:'DM Sans',sans-serif; outline:none; }
-  .fsearch:focus { border-color:var(--accent); }
-  .fbtn { background:var(--surface); border:1px solid var(--border); border-radius:7px; padding:6px 12px; font-size:12px; cursor:pointer; color:var(--muted); transition:all .15s; font-family:'DM Sans',sans-serif; }
-  .fbtn:hover { color:var(--text); border-color:var(--muted); }
-  .fbtn.active { background:var(--accent); color:#000; border-color:var(--accent); font-weight:700; }
+button{
+padding:5px 10px;
+}
 
-  .legend { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:14px; }
-  .li { display:flex; align-items:center; gap:4px; font-size:11px; color:var(--muted); }
-  .ld { width:8px; height:8px; border-radius:2px; }
-
-  .prog-box { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px 16px; margin-bottom:16px; display:flex; align-items:center; gap:20px; }
-  .prog-num { font-family:'Syne',sans-serif; font-size:26px; font-weight:800; color:var(--accent); }
-  .prog-track { flex:1; height:6px; background:var(--border); border-radius:3px; }
-  .prog-fill { height:100%; background:linear-gradient(90deg,var(--accent3),var(--accent)); border-radius:3px; transition:width .5s; }
-  .prog-info { font-size:12px; color:var(--muted); }
-
-  /* ── Category colour tokens ── */
-
-  table { width:100%; border-collapse:separate; border-spacing:0 3px; }
-  thead th { font-size:11px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; padding:8px 10px; text-align:left; background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:5; }
-  thead th:first-child { border-left:1px solid var(--border); border-radius:6px 0 0 6px; }
-  thead th:last-child  { border-right:1px solid var(--border); border-radius:0 6px 6px 0; }
-
-  tr.trow td { background:var(--surface); padding:9px 10px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); vertical-align:middle; }
-  tr.trow td:first-child { border-radius:0 0 0 0; border-left:1px solid var(--border); }
-  tr.trow td:last-child  { border-right:1px solid var(--border); border-radius:0 6px 6px 0; }
-  tr.trow:hover td { background:var(--surface2); }
-  tr.trow.done td { opacity:.55; }
-  tr.trow.done td:last-child { opacity:1; }
-  tr.trow.done .tname { text-decoration:line-through; color:var(--muted); }
-
-  /* ── LEFT coloured stripe per category ── */
-  tr.trow td:first-child { border-left:4px solid var(--border) !important; }
-  tr.cat-onpage    td:first-child { border-left:4px solid var(--c-onpage)    !important; border-radius:6px 0 0 6px; }
-  tr.cat-technical td:first-child { border-left:4px solid var(--c-technical) !important; border-radius:6px 0 0 6px; }
-  tr.cat-offpage   td:first-child { border-left:4px solid var(--c-offpage)   !important; border-radius:6px 0 0 6px; }
-  tr.cat-aio       td:first-child { border-left:4px solid var(--c-aio)       !important; border-radius:6px 0 0 6px; }
-  tr.cat-geo       td:first-child { border-left:4px solid var(--c-geo)       !important; border-radius:6px 0 0 6px; }
-  tr.cat-frontend  td:first-child { border-left:4px solid var(--c-frontend)  !important; border-radius:6px 0 0 6px; }
-  tr.cat-backend   td:first-child { border-left:4px solid var(--c-backend)   !important; border-radius:6px 0 0 6px; }
-  tr.cat-content   td:first-child { border-left:4px solid var(--c-content)   !important; border-radius:6px 0 0 6px; }
-
-  /* ── BOTTOM coloured underline per category ── */
-  tr.cat-onpage    td { border-bottom:1.5px solid rgba(59,130,246,.35)  !important; }
-  tr.cat-technical td { border-bottom:1.5px solid rgba(168,85,247,.35)  !important; }
-  tr.cat-offpage   td { border-bottom:1.5px solid rgba(249,115,22,.35)  !important; }
-  tr.cat-aio       td { border-bottom:1.5px solid rgba(6,182,212,.35)   !important; }
-  tr.cat-geo       td { border-bottom:1.5px solid rgba(16,185,129,.35)  !important; }
-  tr.cat-frontend  td { border-bottom:1.5px solid rgba(245,158,11,.35)  !important; }
-  tr.cat-backend   td { border-bottom:1.5px solid rgba(236,72,153,.35)  !important; }
-  tr.cat-content   td { border-bottom:1.5px solid rgba(132,204,22,.35)  !important; }
-
-  /* ── TOP coloured underline per category ── */
-  tr.cat-onpage    td { border-top:1px solid rgba(59,130,246,.18)  !important; }
-  tr.cat-technical td { border-top:1px solid rgba(168,85,247,.18)  !important; }
-  tr.cat-offpage   td { border-top:1px solid rgba(249,115,22,.18)  !important; }
-  tr.cat-aio       td { border-top:1px solid rgba(6,182,212,.18)   !important; }
-  tr.cat-geo       td { border-top:1px solid rgba(16,185,129,.18)  !important; }
-  tr.cat-frontend  td { border-top:1px solid rgba(245,158,11,.18)  !important; }
-  tr.cat-backend   td { border-top:1px solid rgba(236,72,153,.18)  !important; }
-  tr.cat-content   td { border-top:1px solid rgba(132,204,22,.18)  !important; }
-
-  /* subtle tinted row background per category */
-  tr.cat-onpage    td { background: #12151c; }
-  tr.cat-technical td { background: #13111e; }
-  tr.cat-offpage   td { background: #14120e; }
-  tr.cat-aio       td { background: #0e1518; }
-  tr.cat-geo       td { background: #0e1612; }
-  tr.cat-frontend  td { background: #15130e; }
-  tr.cat-backend   td { background: #15101a; }
-  tr.cat-content   td { background: #12150e; }
-  tr.cat-onpage:hover    td { background:#161c26 !important; }
-  tr.cat-technical:hover td { background:#17122a !important; }
-  tr.cat-offpage:hover   td { background:#1e1610 !important; }
-  tr.cat-aio:hover       td { background:#0e1c22 !important; }
-  tr.cat-geo:hover       td { background:#101e18 !important; }
-  tr.cat-frontend:hover  td { background:#1e1a10 !important; }
-  tr.cat-backend:hover   td { background:#1e1020 !important; }
-  tr.cat-analytics td:first-child { border-left:4px solid var(--c-analytics) !important; border-radius:6px 0 0 6px; }
-  tr.cat-console   td:first-child { border-left:4px solid var(--c-console)   !important; border-radius:6px 0 0 6px; }
-  tr.cat-pagewise  td:first-child { border-left:4px solid var(--c-pagewise)  !important; border-radius:6px 0 0 6px; }
-
-  tr.cat-analytics td { border-bottom:1.5px solid rgba(232,121,249,.35) !important; }
-  tr.cat-console   td { border-bottom:1.5px solid rgba(56,189,248,.35)  !important; }
-  tr.cat-pagewise  td { border-bottom:1.5px solid rgba(251,113,133,.35) !important; }
-
-  tr.cat-analytics td { border-top:1px solid rgba(232,121,249,.18) !important; }
-  tr.cat-console   td { border-top:1px solid rgba(56,189,248,.18)  !important; }
-  tr.cat-pagewise  td { border-top:1px solid rgba(251,113,133,.18) !important; }
-
-  tr.cat-analytics td { background:#150d1a; }
-  tr.cat-console   td { background:#0c1520; }
-  tr.cat-pagewise  td { background:#180e10; }
-  tr.cat-analytics:hover td { background:#1e1028 !important; }
-  tr.cat-console:hover   td { background:#0f1e2e !important; }
-  tr.cat-pagewise:hover  td { background:#221016 !important; }
-
-  .chk { width:17px; height:17px; border-radius:4px; border:2px solid var(--border); appearance:none; cursor:pointer; display:block; background:transparent; position:relative; transition:all .15s; }
-  .chk:checked { background:var(--accent3); border-color:var(--accent3); }
-  .chk:checked::after { content:'✓'; position:absolute; top:-1px; left:2px; font-size:11px; color:#000; font-weight:900; }
-
-  .badge { display:inline-flex; padding:2px 7px; border-radius:4px; font-size:10px; font-weight:700; white-space:nowrap; }
-  .bseo  { background:rgba(59,130,246,.15); color:#93c5fd; border:1px solid rgba(59,130,246,.3); }
-  .bdev  { background:rgba(168,85,247,.15); color:#d8b4fe; border:1px solid rgba(168,85,247,.3); }
-  .bfe   { background:rgba(249,115,22,.15); color:#fdba74; border:1px solid rgba(249,115,22,.3); }
-  .bbe   { background:rgba(6,182,212,.15); color:#67e8f9; border:1px solid rgba(6,182,212,.3); }
-  .bboth { background:rgba(16,185,129,.15); color:#6ee7b7; border:1px solid rgba(16,185,129,.3); }
-  .bhigh { background:rgba(239,68,68,.15); color:#fca5a5; border:1px solid rgba(239,68,68,.3); }
-  .bmed  { background:rgba(245,158,11,.15); color:#fcd34d; border:1px solid rgba(245,158,11,.3); }
-  .blow  { background:rgba(100,116,139,.15); color:#94a3b8; border:1px solid rgba(100,116,139,.3); }
-  .bcat-onpage    { background:rgba(59,130,246,.15);  color:#93c5fd; border:1px solid rgba(59,130,246,.4); }
-  .bcat-technical { background:rgba(168,85,247,.15);  color:#d8b4fe; border:1px solid rgba(168,85,247,.4); }
-  .bcat-offpage   { background:rgba(249,115,22,.15);  color:#fdba74; border:1px solid rgba(249,115,22,.4); }
-  .bcat-aio       { background:rgba(6,182,212,.15);   color:#67e8f9; border:1px solid rgba(6,182,212,.4); }
-  .bcat-geo       { background:rgba(16,185,129,.15);  color:#6ee7b7; border:1px solid rgba(16,185,129,.4); }
-  .bcat-frontend  { background:rgba(245,158,11,.15);  color:#fcd34d; border:1px solid rgba(245,158,11,.4); }
-  .bcat-backend   { background:rgba(236,72,153,.15);  color:#f9a8d4; border:1px solid rgba(236,72,153,.4); }
-  .bcat-content   { background:rgba(132,204,22,.15);  color:#bef264; border:1px solid rgba(132,204,22,.4); }
-  .bcat-analytics { background:rgba(232,121,249,.15); color:#f0abfc; border:1px solid rgba(232,121,249,.4); }
-  .bcat-console   { background:rgba(56,189,248,.15);  color:#7dd3fc; border:1px solid rgba(56,189,248,.4); }
-  .bcat-pagewise  { background:rgba(251,113,133,.15); color:#fda4af; border:1px solid rgba(251,113,133,.4); }
-
-  .tname { font-size:13px; font-weight:500; }
-  .tdesc { font-size:11px; color:var(--muted); margin-top:1px; line-height:1.4; }
-  .ppill { display:inline-flex; padding:1px 6px; border-radius:3px; font-size:10px; background:var(--surface2); border:1px solid var(--border); color:var(--muted); }
-  .note-in { background:transparent; border:none; border-bottom:1px solid transparent; color:var(--muted); font-size:11px; font-family:'DM Sans',sans-serif; width:100%; min-width:90px; outline:none; padding:2px 0; transition:border-color .2s; }
-  .note-in:focus { border-bottom-color:var(--accent); color:var(--text); }
-  .note-in::placeholder { color:var(--border); }
-
-  .empty { text-align:center; padding:60px; color:var(--muted); }
-
-  ::-webkit-scrollbar { width:4px; height:4px; }
-  ::-webkit-scrollbar-track { background:var(--bg); }
-  ::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
-
-  @media (max-width:700px) { .sidebar { display:none; } .layout { height:auto; } }
 </style>
 </head>
+
 <body>
 
-<div class="header">
-  <div class="hbrand">
-    <div class="logo">GMR</div>
-    <div>
-      <div class="htitle">SEO · AIO · GEO Master Checklist</div>
-      <div class="hsub">Staging: uatxyz.gmrgroup.in → Push to Production</div>
-    </div>
-  </div>
-  <div class="hstats">
-    <div class="pill"><b id="tc" style="color:var(--accent)">0</b> Total</div>
-    <div class="pill"><b id="dc" style="color:var(--accent3)">0</b> Done</div>
-    <div class="pill"><b id="pc" style="color:var(--warn)">0</b> Pending</div>
-    <div class="pill"><b id="pp" style="color:var(--accent)">0%</b> Complete</div>
-    <button class="btn-exp" onclick="exportCSV()">⬇ Export CSV</button>
-    <button class="btn-add" onclick="openModal()">＋ Add Task</button>
-  </div>
-</div>
+<h2>SEO Task Manager</h2>
 
-<div class="tabs" id="tabs-bar">
-  <button class="tab active" onclick="switchTab('all',this)">🗂 All <span class="tbadge" id="tb-all">0</span></button>
-  <button class="tab" onclick="switchTab('onpage',this)">📄 On-Page SEO <span class="tbadge" id="tb-onpage">0</span></button>
-  <button class="tab" onclick="switchTab('technical',this)">⚙️ Technical SEO <span class="tbadge" id="tb-technical">0</span></button>
-  <button class="tab" onclick="switchTab('offpage',this)">🔗 Off-Page SEO <span class="tbadge" id="tb-offpage">0</span></button>
-  <button class="tab" onclick="switchTab('aio',this)">🤖 AIO <span class="tbadge" id="tb-aio">0</span></button>
-  <button class="tab" onclick="switchTab('geo',this)">🌍 GEO <span class="tbadge" id="tb-geo">0</span></button>
-  <button class="tab" onclick="switchTab('analytics',this)">📊 Analytics GA4 <span class="tbadge" id="tb-analytics">0</span></button>
-  <button class="tab" onclick="switchTab('console',this)">🔎 Search Console <span class="tbadge" id="tb-console">0</span></button>
-  <button class="tab" onclick="switchTab('pagewise',this)">🗃 Per-Page SEO <span class="tbadge" id="tb-pagewise">0</span></button>
-  <button class="tab" onclick="switchTab('frontend',this)">🎨 Frontend Dev <span class="tbadge" id="tb-frontend">0</span></button>
-  <button class="tab" onclick="switchTab('backend',this)">🛢 Backend Dev <span class="tbadge" id="tb-backend">0</span></button>
-  <button class="tab" onclick="switchTab('content',this)">✍️ Content <span class="tbadge" id="tb-content">0</span></button>
-</div>
+<p>
+Total: <span id="total">0</span> |
+Done: <span id="done">0</span> |
+Pending: <span id="pending">0</span>
+</p>
 
-<div class="layout">
-  <div class="sidebar" id="sb"></div>
-  <div class="content">
-    <div class="fbar">
-      <input class="fsearch" id="srch" placeholder="🔍 Search tasks, pages, owners…" oninput="render()">
-      <button class="fbtn active" onclick="setF('all',this)">All</button>
-      <button class="fbtn" onclick="setF('pending',this)">Pending</button>
-      <button class="fbtn" onclick="setF('done',this)">Done</button>
-      <button class="fbtn" onclick="setF('high',this)">🔴 High</button>
-      <button class="fbtn" onclick="setF('medium',this)">🟡 Med</button>
-      <button class="fbtn" onclick="setF('low',this)">⚪ Low</button>
-    </div>
-    <div class="legend">
-      <div class="li"><div class="ld" style="background:var(--c-onpage)"></div>On-Page SEO</div>
-      <div class="li"><div class="ld" style="background:var(--c-technical)"></div>Technical SEO</div>
-      <div class="li"><div class="ld" style="background:var(--c-offpage)"></div>Off-Page SEO</div>
-      <div class="li"><div class="ld" style="background:var(--c-aio)"></div>AIO</div>
-      <div class="li"><div class="ld" style="background:var(--c-geo)"></div>GEO</div>
-      <div class="li"><div class="ld" style="background:var(--c-analytics)"></div>Analytics GA4</div>
-      <div class="li"><div class="ld" style="background:var(--c-console)"></div>Search Console</div>
-      <div class="li"><div class="ld" style="background:var(--c-pagewise)"></div>Per-Page SEO</div>
-      <div class="li"><div class="ld" style="background:var(--c-frontend)"></div>Frontend Dev</div>
-      <div class="li"><div class="ld" style="background:var(--c-backend)"></div>Backend Dev</div>
-      <div class="li"><div class="ld" style="background:var(--c-content)"></div>Content</div>
-    </div>
-    <div class="legend" style="margin-top:-8px">
-      <div class="li"><div class="ld" style="background:#93c5fd"></div>SEO Person</div>
-      <div class="li"><div class="ld" style="background:#d8b4fe"></div>Developer</div>
-      <div class="li"><div class="ld" style="background:#fdba74"></div>Frontend Dev</div>
-      <div class="li"><div class="ld" style="background:#67e8f9"></div>Backend Dev</div>
-      <div class="li"><div class="ld" style="background:#6ee7b7"></div>SEO + Dev Both</div>
-    </div>
-    <div class="prog-box">
-      <div>
-        <div class="prog-num" id="pr-pct">0%</div>
-        <div class="prog-info" id="pr-info">0 of 0 completed</div>
-      </div>
-      <div class="prog-track"><div class="prog-fill" id="pr-fill" style="width:0%"></div></div>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th style="width:32px">✓</th>
-          <th style="width:32px">#</th>
-          <th>Task</th>
-          <th>Category</th>
-          <th>Owner</th>
-          <th>Priority</th>
-          <th>Page / Scope</th>
-          <th style="min-width:120px">Notes</th>
-          <th style="width:64px">Actions</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
-    <div id="empty" class="empty" style="display:none"><div style="font-size:36px">🔍</div><div>No tasks match filter</div></div>
-  </div>
-</div>
+<table>
 
+<thead>
 
-<!-- ── MODAL OVERLAY + DIALOG ── -->
-<div id="modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:999;backdrop-filter:blur(4px);" onclick="closeModal(event)"></div>
-<div id="modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1000;width:min(600px,95vw);background:#12151c;border:1px solid #2d3448;border-radius:14px;box-shadow:0 24px 80px rgba(0,0,0,.6);font-family:'DM Sans',sans-serif;">
-  <div style="padding:20px 24px 0;display:flex;align-items:center;justify-content:space-between;">
-    <div id="modal-title" style="font-family:'Syne',sans-serif;font-weight:800;font-size:16px;">＋ Add New Task</div>
-    <button id="modal-close-btn" style="background:none;border:none;color:#64748b;font-size:20px;cursor:pointer;padding:4px 8px;border-radius:6px;line-height:1;">✕</button>
-  </div>
-  <div style="padding:20px 24px;display:grid;gap:14px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-      <div><label class="mlabel">Task Title *</label><input id="m-title" class="minput" placeholder="e.g. Write meta for Blog page"></div>
-      <div><label class="mlabel">Page / Scope *</label><input id="m-page" class="minput" placeholder="e.g. Blog Page, Sitewide"></div>
-    </div>
-    <div><label class="mlabel">Description / Details</label><textarea id="m-desc" class="minput" rows="2" placeholder="Instructions or acceptance criteria…" style="resize:vertical;"></textarea></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
-      <div>
-        <label class="mlabel">Category</label>
-        <select id="m-cat" class="minput">
-          <option value="custom">⭐ Custom</option>
-          <option value="onpage">📄 On-Page SEO</option>
-          <option value="technical">⚙️ Technical SEO</option>
-          <option value="offpage">🔗 Off-Page SEO</option>
-          <option value="aio">🤖 AIO</option>
-          <option value="geo">🌍 GEO</option>
-          <option value="analytics">📊 Analytics GA4</option>
-          <option value="console">🔎 Search Console</option>
-          <option value="pagewise">🗃 Per-Page SEO</option>
-          <option value="frontend">🎨 Frontend Dev</option>
-          <option value="backend">🛢 Backend Dev</option>
-          <option value="content">✍️ Content</option>
-        </select>
-      </div>
-      <div>
-        <label class="mlabel">Owner</label>
-        <select id="m-owner" class="minput">
-          <option value="seo">SEO Person</option>
-          <option value="both">SEO + Dev Both</option>
-          <option value="frontend">Frontend Dev</option>
-          <option value="backend">Backend Dev</option>
-          <option value="dev">Developer</option>
-        </select>
-      </div>
-      <div>
-        <label class="mlabel">Priority</label>
-        <select id="m-prio" class="minput">
-          <option value="high">🔴 High</option>
-          <option value="medium">🟡 Medium</option>
-          <option value="low">⚪ Low</option>
-        </select>
-      </div>
-    </div>
-    <div><label class="mlabel">Notes (optional)</label><input id="m-note" class="minput" placeholder="Assignee, deadline, link…"></div>
-    <div id="modal-err" style="display:none;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:6px;padding:8px 12px;font-size:12px;color:#fca5a5;"></div>
-    <div style="display:flex;gap:10px;justify-content:flex-end;padding-top:4px;">
-      <button id="modal-cancel-btn" style="background:#1a1e28;border:1px solid #252a38;color:#64748b;border-radius:8px;padding:9px 20px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;">Cancel</button>
-      <button id="modal-save-btn" style="background:#e8a020;color:#000;border:none;border-radius:8px;padding:9px 22px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;">Save Task</button>
-    </div>
-  </div>
-</div>
+<tr>
+<th>Done</th>
+<th>Task</th>
+<th>Category</th>
+<th>Priority</th>
+<th>Delete</th>
+</tr>
 
-<!-- ── EXTRA STYLES ── -->
-<style>
-  .btn-add{background:#10b981;color:#000;border:none;border-radius:7px;padding:7px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;transition:opacity .2s;}
-  .btn-add:hover{opacity:.85;}
-  .mlabel{display:block;font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
-  .minput{width:100%;background:#1a1e28;border:1px solid #252a38;border-radius:7px;padding:8px 11px;color:#e2e8f0;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;box-sizing:border-box;transition:border-color .2s;}
-  .minput:focus{border-color:#e8a020;}
-  .minput option{background:#1a1e28;}
-  .act-btn{background:none;border:none;cursor:pointer;padding:4px 6px;border-radius:4px;font-size:14px;opacity:.5;transition:opacity .15s,background .15s;line-height:1;}
-  .act-btn:hover{opacity:1;background:#1a1e28;}
-  .bcat-custom{background:rgba(232,160,32,.15);color:#fcd34d;border:1px solid rgba(232,160,32,.4);}
-  tr.cat-custom td:first-child{border-left:4px solid #e8a020!important;}
-  tr.cat-custom td{background:#15120a;border-bottom:1.5px solid rgba(232,160,32,.25)!important;}
-  tr.cat-custom:hover td{background:#1e1a0e!important;}
-  #saved-toast{position:fixed;bottom:18px;right:18px;background:#1a1e28;border:1px solid #252a38;border-radius:8px;padding:8px 14px;font-size:12px;color:#10b981;z-index:9999;opacity:0;transition:opacity .3s;font-family:'DM Sans',sans-serif;pointer-events:none;}
-</style>
-<div id="saved-toast">✓ Saved</div>
+</thead>
+
+<tbody id="tasks"></tbody>
+
+</table>
 
 <script>
 
-let defaultTasks = [
+let defaultTasks=[
 
-{id:1,cat:'onpage',title:'Write unique Title Tag — Homepage',desc:'Max 60 chars',owner:'seo',priority:'high',page:'Homepage'},
-{id:2,cat:'onpage',title:'Write Meta Description — Homepage',desc:'Max 155 chars',owner:'seo',priority:'high',page:'Homepage'},
-{id:3,cat:'technical',title:'Create XML Sitemap',desc:'Submit sitemap in Google Search Console',owner:'seo',priority:'high',page:'Sitewide'},
-{id:4,cat:'technical',title:'Fix Broken Links',desc:'Run Screaming Frog crawl',owner:'seo',priority:'high',page:'Sitewide'},
-{id:5,cat:'content',title:'Write Blog Article',desc:'Minimum 1000 words SEO article',owner:'seo',priority:'medium',page:'Blog'}
+{id:1,title:"Write Homepage Title Tag",cat:"Onpage",priority:"High"},
+{id:2,title:"Write Homepage Meta Description",cat:"Onpage",priority:"High"},
+{id:3,title:"Create XML Sitemap",cat:"Technical",priority:"High"},
+{id:4,title:"Fix Broken Links",cat:"Technical",priority:"High"},
+{id:5,title:"Publish Blog Article",cat:"Content",priority:"Medium"}
 
-];
+]
 
-let saved = JSON.parse(localStorage.getItem("tasks"));
+let saved=JSON.parse(localStorage.getItem("tasks"))
 
-let tasks = saved && saved.length ? saved : defaultTasks;
+let tasks=saved && saved.length ? saved : defaultTasks
 
-const tbody = document.getElementById("tbody");
+function save(){
 
-function saveTasks(){
-localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-function toggleTask(id){
-
-let task = tasks.find(t=>t.id===id);
-
-if(task){
-task.done = !task.done;
-saveTasks();
-render();
-}
+localStorage.setItem("tasks",JSON.stringify(tasks))
 
 }
 
-function deleteTask(id){
+function toggle(id){
 
-tasks = tasks.filter(t=>t.id!==id);
+let t=tasks.find(x=>x.id==id)
 
-saveTasks();
+t.done=!t.done
 
-render();
+save()
+
+render()
+
+}
+
+function remove(id){
+
+tasks=tasks.filter(x=>x.id!=id)
+
+save()
+
+render()
 
 }
 
 function render(){
 
-tbody.innerHTML="";
+let tbody=document.getElementById("tasks")
 
-let done = 0;
+tbody.innerHTML=""
 
-tasks.forEach((t,i)=>{
-
-if(t.done) done++;
-
-let row = document.createElement("tr");
-
-row.className = "trow cat-"+t.cat + (t.done ? " done":"");
-
-row.innerHTML = `
-
-<td>
-<input class="chk" type="checkbox"
-${t.done ? "checked":""}
-onchange="toggleTask(${t.id})">
-</td>
-
-<td>${i+1}</td>
-
-<td>
-<div class="tname">${t.title}</div>
-<div class="tdesc">${t.desc||""}</div>
-</td>
-
-<td>${t.cat}</td>
-<td>${t.owner}</td>
-<td>${t.priority}</td>
-<td>${t.page}</td>
-
-<td>
-<input class="note-in" placeholder="note">
-</td>
-
-<td>
-<button onclick="deleteTask(${t.id})">🗑</button>
-</td>
-
-`;
-
-tbody.appendChild(row);
-
-});
-
-updateStats(done);
-
-}
-
-function updateStats(done){
-
-let total = tasks.length;
-
-let pending = total - done;
-
-let percent = total ? Math.round(done/total*100) : 0;
-
-document.getElementById("tc").textContent = total;
-document.getElementById("dc").textContent = done;
-document.getElementById("pc").textContent = pending;
-document.getElementById("pp").textContent = percent+"%";
-
-document.getElementById("pr-pct").textContent = percent+"%";
-document.getElementById("pr-info").textContent = done+" of "+total+" completed";
-document.getElementById("pr-fill").style.width = percent+"%";
-
-}
-
-function exportCSV(){
-
-let csv = "Task,Category,Owner,Priority,Page\n";
+let done=0
 
 tasks.forEach(t=>{
-csv += `"${t.title}","${t.cat}","${t.owner}","${t.priority}","${t.page}"\n`;
-});
 
-let blob = new Blob([csv],{type:"text/csv"});
+if(t.done) done++
 
-let url = URL.createObjectURL(blob);
+tbody.innerHTML+=`
 
-let a = document.createElement("a");
+<tr>
 
-a.href=url;
-a.download="seo-tasks.csv";
+<td>
+<input type="checkbox"
+${t.done?"checked":""}
+onchange="toggle(${t.id})">
+</td>
 
-a.click();
+<td>${t.title}</td>
+<td>${t.cat}</td>
+<td>${t.priority}</td>
+
+<td>
+<button onclick="remove(${t.id})">Delete</button>
+</td>
+
+</tr>
+
+`
+
+})
+
+document.getElementById("total").innerText=tasks.length
+document.getElementById("done").innerText=done
+document.getElementById("pending").innerText=tasks.length-done
 
 }
 
-window.onload = render;
+render()
 
 </script>
+
 </body>
 </html>
