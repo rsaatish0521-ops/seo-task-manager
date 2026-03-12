@@ -712,7 +712,13 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [
   {id:284,cat:'pagewise',title:'[GMR Logistics] Title + Meta + 300 word content',desc:'"GMR Logistics | Airport Cargo & Supply Chain Solutions India"',owner:'seo',priority:'medium',page:'GMR Logistics Page'},
   {id:285,cat:'pagewise',title:'[RAXA Security] Title + Meta + 300 word content',desc:'"RAXA Techno Security Solutions | Airport Security India"',owner:'seo',priority:'medium',page:'RAXA Security Page'},
 ];
+const TASKS_BASE = TASKS;
 
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof render === "function") {
+    render();
+  }
+});
 // ── STATE ──
 let checked = {}, notes = {}, customTasks = [], overrides = {}, hidden = [];
 let activeTab = 'all', activeFilter = 'all', activeSidebar = null, editingId = null;
