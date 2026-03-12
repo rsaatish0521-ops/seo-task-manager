@@ -380,105 +380,137 @@
 
 <script>
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let defaultTasks = [
+
+{id:1,cat:'onpage',title:'Write unique Title Tag — Homepage',desc:'Max 60 chars',owner:'seo',priority:'high',page:'Homepage'},
+{id:2,cat:'onpage',title:'Write Meta Description — Homepage',desc:'Max 155 chars',owner:'seo',priority:'high',page:'Homepage'},
+{id:3,cat:'technical',title:'Create XML Sitemap',desc:'Submit sitemap in Google Search Console',owner:'seo',priority:'high',page:'Sitewide'},
+{id:4,cat:'technical',title:'Fix Broken Links',desc:'Run Screaming Frog crawl',owner:'seo',priority:'high',page:'Sitewide'},
+{id:5,cat:'content',title:'Write Blog Article',desc:'Minimum 1000 words SEO article',owner:'seo',priority:'medium',page:'Blog'}
+
+];
+
+let saved = JSON.parse(localStorage.getItem("tasks"));
+
+let tasks = saved && saved.length ? saved : defaultTasks;
 
 const tbody = document.getElementById("tbody");
-const tc = document.getElementById("tc");
-const dc = document.getElementById("dc");
-const pc = document.getElementById("pc");
-const pp = document.getElementById("pp");
 
 function saveTasks(){
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 function toggleTask(id){
-  const t = tasks.find(x => x.id === id);
-  if(!t) return;
-  t.done = !t.done;
-  saveTasks();
-  render();
+
+let task = tasks.find(t=>t.id===id);
+
+if(task){
+task.done = !task.done;
+saveTasks();
+render();
 }
-
-function render(){
-
-  tbody.innerHTML = "";
-
-  let done = 0;
-
-  tasks.forEach((t,i)=>{
-
-    if(t.done) done++;
-
-    const tr = document.createElement("tr");
-    tr.className = "trow " + (t.done ? "done":"") + " cat-"+t.cat;
-
-    tr.innerHTML = `
-      <td>
-        <input class="chk" type="checkbox"
-        ${t.done ? "checked":""}
-        onchange="toggleTask(${t.id})">
-      </td>
-
-      <td>${i+1}</td>
-
-      <td>
-        <div class="tname">${t.title}</div>
-        <div class="tdesc">${t.desc||""}</div>
-      </td>
-
-      <td>${t.cat}</td>
-      <td>${t.owner}</td>
-      <td>${t.priority}</td>
-      <td>${t.page}</td>
-
-      <td>
-        <input class="note-in"
-        value="${t.note||""}"
-        placeholder="add note">
-      </td>
-
-      <td>
-        <button onclick="deleteTask(${t.id})">🗑</button>
-      </td>
-    `;
-
-    tbody.appendChild(tr);
-
-  });
-
-  const total = tasks.length;
-  const pending = total - done;
-  const percent = total ? Math.round(done/total*100):0;
-
-  tc.textContent = total;
-  dc.textContent = done;
-  pc.textContent = pending;
-  pp.textContent = percent+"%";
 
 }
 
 function deleteTask(id){
-  tasks = tasks.filter(t => t.id !== id);
-  saveTasks();
-  render();
+
+tasks = tasks.filter(t=>t.id!==id);
+
+saveTasks();
+
+render();
+
+}
+
+function render(){
+
+tbody.innerHTML="";
+
+let done = 0;
+
+tasks.forEach((t,i)=>{
+
+if(t.done) done++;
+
+let row = document.createElement("tr");
+
+row.className = "trow cat-"+t.cat + (t.done ? " done":"");
+
+row.innerHTML = `
+
+<td>
+<input class="chk" type="checkbox"
+${t.done ? "checked":""}
+onchange="toggleTask(${t.id})">
+</td>
+
+<td>${i+1}</td>
+
+<td>
+<div class="tname">${t.title}</div>
+<div class="tdesc">${t.desc||""}</div>
+</td>
+
+<td>${t.cat}</td>
+<td>${t.owner}</td>
+<td>${t.priority}</td>
+<td>${t.page}</td>
+
+<td>
+<input class="note-in" placeholder="note">
+</td>
+
+<td>
+<button onclick="deleteTask(${t.id})">🗑</button>
+</td>
+
+`;
+
+tbody.appendChild(row);
+
+});
+
+updateStats(done);
+
+}
+
+function updateStats(done){
+
+let total = tasks.length;
+
+let pending = total - done;
+
+let percent = total ? Math.round(done/total*100) : 0;
+
+document.getElementById("tc").textContent = total;
+document.getElementById("dc").textContent = done;
+document.getElementById("pc").textContent = pending;
+document.getElementById("pp").textContent = percent+"%";
+
+document.getElementById("pr-pct").textContent = percent+"%";
+document.getElementById("pr-info").textContent = done+" of "+total+" completed";
+document.getElementById("pr-fill").style.width = percent+"%";
+
 }
 
 function exportCSV(){
 
-  let csv = "Task,Category,Owner,Priority,Page\n";
+let csv = "Task,Category,Owner,Priority,Page\n";
 
-  tasks.forEach(t=>{
-    csv += `"${t.title}","${t.cat}","${t.owner}","${t.priority}","${t.page}"\n`;
-  });
+tasks.forEach(t=>{
+csv += `"${t.title}","${t.cat}","${t.owner}","${t.priority}","${t.page}"\n`;
+});
 
-  const blob = new Blob([csv],{type:"text/csv"});
-  const url = URL.createObjectURL(blob);
+let blob = new Blob([csv],{type:"text/csv"});
 
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "seo-tasks.csv";
-  a.click();
+let url = URL.createObjectURL(blob);
+
+let a = document.createElement("a");
+
+a.href=url;
+a.download="seo-tasks.csv";
+
+a.click();
 
 }
 
